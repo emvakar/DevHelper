@@ -12,6 +12,12 @@
 		205E4ED221F8E94E00ABB0D8 /* DevHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 205E4EC421F8E94E00ABB0D8 /* DevHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		205E4EDC21F8EC0E00ABB0D8 /* DatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */; };
 		205E4EFB21F901A500ABB0D8 /* DevHelper.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 205E4EFA21F901A500ABB0D8 /* DevHelper.podspec */; };
+		205E4F0F21F9066F00ABB0D8 /* IKHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4F0A21F9066F00ABB0D8 /* IKHeaderView.swift */; };
+		205E4F1021F9066F00ABB0D8 /* IKUIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4F0B21F9066F00ABB0D8 /* IKUIColorExtension.swift */; };
+		205E4F1121F9066F00ABB0D8 /* IKUIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4F0C21F9066F00ABB0D8 /* IKUIBuilder.swift */; };
+		205E4F1221F9066F00ABB0D8 /* IKIconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4F0D21F9066F00ABB0D8 /* IKIconLabelView.swift */; };
+		205E4F1321F9066F00ABB0D8 /* UIBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4F0E21F9066F00ABB0D8 /* UIBarButtonItem.swift */; };
+		205E4F1921F907C000ABB0D8 /* Pods_Moon_Astrology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205E4F1821F907C000ABB0D8 /* Pods_Moon_Astrology.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,13 @@
 		205E4ED121F8E94E00ABB0D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesHelper.swift; sourceTree = "<group>"; };
 		205E4EFA21F901A500ABB0D8 /* DevHelper.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DevHelper.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		205E4F0A21F9066F00ABB0D8 /* IKHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKHeaderView.swift; sourceTree = "<group>"; };
+		205E4F0B21F9066F00ABB0D8 /* IKUIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKUIColorExtension.swift; sourceTree = "<group>"; };
+		205E4F0C21F9066F00ABB0D8 /* IKUIBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKUIBuilder.swift; sourceTree = "<group>"; };
+		205E4F0D21F9066F00ABB0D8 /* IKIconLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKIconLabelView.swift; sourceTree = "<group>"; };
+		205E4F0E21F9066F00ABB0D8 /* UIBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItem.swift; sourceTree = "<group>"; };
+		205E4F1621F907AC00ABB0D8 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		205E4F1821F907C000ABB0D8 /* Pods_Moon_Astrology.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Moon_Astrology.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205E4F1921F907C000ABB0D8 /* Pods_Moon_Astrology.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +75,7 @@
 				205E4ECE21F8E94E00ABB0D8 /* DevHelperTests */,
 				205E4EC221F8E94E00ABB0D8 /* Products */,
 				205E4EFA21F901A500ABB0D8 /* DevHelper.podspec */,
+				205E4F1521F907AC00ABB0D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +91,8 @@
 		205E4EC321F8E94E00ABB0D8 /* DevHelper */ = {
 			isa = PBXGroup;
 			children = (
-				205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */,
+				205E4F0921F9066F00ABB0D8 /* UI Layer */,
+				205E4EFD21F9062E00ABB0D8 /* Extensions */,
 				205E4EC421F8E94E00ABB0D8 /* DevHelper.h */,
 				205E4EC521F8E94E00ABB0D8 /* Info.plist */,
 			);
@@ -90,6 +106,35 @@
 				205E4ED121F8E94E00ABB0D8 /* Info.plist */,
 			);
 			path = DevHelperTests;
+			sourceTree = "<group>";
+		};
+		205E4EFD21F9062E00ABB0D8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		205E4F0921F9066F00ABB0D8 /* UI Layer */ = {
+			isa = PBXGroup;
+			children = (
+				205E4F0A21F9066F00ABB0D8 /* IKHeaderView.swift */,
+				205E4F0B21F9066F00ABB0D8 /* IKUIColorExtension.swift */,
+				205E4F0C21F9066F00ABB0D8 /* IKUIBuilder.swift */,
+				205E4F0D21F9066F00ABB0D8 /* IKIconLabelView.swift */,
+				205E4F0E21F9066F00ABB0D8 /* UIBarButtonItem.swift */,
+			);
+			path = "UI Layer";
+			sourceTree = "<group>";
+		};
+		205E4F1521F907AC00ABB0D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				205E4F1821F907C000ABB0D8 /* Pods_Moon_Astrology.framework */,
+				205E4F1621F907AC00ABB0D8 /* SnapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,7 +247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205E4F1321F9066F00ABB0D8 /* UIBarButtonItem.swift in Sources */,
 				205E4EDC21F8EC0E00ABB0D8 /* DatesHelper.swift in Sources */,
+				205E4F1121F9066F00ABB0D8 /* IKUIBuilder.swift in Sources */,
+				205E4F1021F9066F00ABB0D8 /* IKUIColorExtension.swift in Sources */,
+				205E4F1221F9066F00ABB0D8 /* IKIconLabelView.swift in Sources */,
+				205E4F0F21F9066F00ABB0D8 /* IKHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
