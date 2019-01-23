@@ -1,0 +1,48 @@
+warning_threshold: 5
+
+included:
+- Cherdak
+- CherdakTests
+- CherdakUITests
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Carthage
+- Pods
+
+opt_in_rules:
+- empty_count
+- let_var_whitespace
+- type_name
+- control_statement
+
+
+disabled_rules:
+- missing_docs
+- large_tuple
+- comma
+- identifier_name
+- function_body_length
+- empty_parentheses_with_trailing_closure
+- type_body_length
+- multiple_closures_with_trailing_closure
+- cyclomatic_complexity
+- type_name
+- syntactic_sugar
+- file_length
+- todo
+
+line_length: 500
+warning: 150
+variable_name_length: 3
+
+function_parameter_count:
+warning: 10
+error: 15
+
+#file_length:
+#warning: 1000
+#error: 1100
+
+#type_body_length:
+#warning: 400
+#error: 600

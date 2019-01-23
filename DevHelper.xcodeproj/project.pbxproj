@@ -10,6 +10,7 @@
 		205E4ECB21F8E94E00ABB0D8 /* DevHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205E4EC121F8E94E00ABB0D8 /* DevHelper.framework */; };
 		205E4ED021F8E94E00ABB0D8 /* DevHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4ECF21F8E94E00ABB0D8 /* DevHelperTests.swift */; };
 		205E4ED221F8E94E00ABB0D8 /* DevHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 205E4EC421F8E94E00ABB0D8 /* DevHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		205E4EDC21F8EC0E00ABB0D8 /* DatesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		205E4ECA21F8E94E00ABB0D8 /* DevHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		205E4ECF21F8E94E00ABB0D8 /* DevHelperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevHelperTests.swift; sourceTree = "<group>"; };
 		205E4ED121F8E94E00ABB0D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatesHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		205E4EC321F8E94E00ABB0D8 /* DevHelper */ = {
 			isa = PBXGroup;
 			children = (
+				205E4EDB21F8EC0E00ABB0D8 /* DatesHelper.swift */,
 				205E4EC421F8E94E00ABB0D8 /* DevHelper.h */,
 				205E4EC521F8E94E00ABB0D8 /* Info.plist */,
 			);
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					205E4EC021F8E94E00ABB0D8 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					205E4EC921F8E94E00ABB0D8 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205E4EDC21F8EC0E00ABB0D8 /* DatesHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 		205E4ED621F8E94E00ABB0D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -355,9 +361,10 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eskaria.DevHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eskaria.dev-helper";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +373,7 @@
 		205E4ED721F8E94E00ABB0D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -380,7 +388,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eskaria.DevHelper;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eskaria.dev-helper";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -391,6 +399,7 @@
 		205E4ED921F8E94E00ABB0D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V93MRMNEKV;
 				INFOPLIST_FILE = DevHelperTests/Info.plist;
@@ -409,6 +418,7 @@
 		205E4EDA21F8E94E00ABB0D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V93MRMNEKV;
 				INFOPLIST_FILE = DevHelperTests/Info.plist;
