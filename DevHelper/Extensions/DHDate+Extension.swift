@@ -1,5 +1,5 @@
 //
-//  DHDates+Extension.swift
+//  DHDate+Extension.swift
 //  DevHelper
 //
 //  Created by Emil Karimov on 23/01/2019.
