@@ -1,6 +1,6 @@
 //
-//  IconLabelView.swift
-//  Cherdak
+//  DHIconLabelView.swift
+//  DevHelper
 //
 //  Created by Emil Karimov on 22/09/2018
 //  Copyright © 2018 Emil Karimov. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class IKIconLabelView: UIView {
+public class DHIconLabelView: UIView {
 
     public var label: UILabel! = UILabel()//size: 13, weight: UIFont.Weight.regular.rawValue, color: UIColor.appHeadertextColor())
     public var iconView: UIImageView! = nil

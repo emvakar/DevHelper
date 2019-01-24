@@ -1,8 +1,8 @@
 //
-//  DatesHelper.swift
-//  Helpers
+//  DHDates+Extension.swift
+//  DevHelper
 //
-//  Created by Emil Karimov on 23.01.2019.
+//  Created by Emil Karimov on 23/01/2019.
 //  Copyright © 2019 Emil Karimov.
 //
 
@@ -114,6 +114,9 @@ public extension Date {
     }
 
     /// Converts the date to string based on a relative time language. i.e. just now, 1 minute ago etc...
+    ///
+    /// - Parameter strings: localization dictionary, by default its russian language
+    /// - Returns: relative time string
     func toStringWithRelativeTime(strings: [RelativeTimeStringType: String]? = nil) -> String {
 
         let time = self.timeIntervalSince1970

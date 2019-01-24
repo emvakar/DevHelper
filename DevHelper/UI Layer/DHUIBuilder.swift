@@ -1,6 +1,6 @@
 //
-//  UIBuilder.swift
-//  Cherdak
+//  DHUIBuilder.swift
+//  DevHelper
 //
 //  Created by Emil Karimov on 22/09/2018
 //  Copyright © 2018 Emil Karimov. All rights reserved.
@@ -29,9 +29,9 @@ public struct Getter {
 
 public struct Maker {
 
-    public func headerView(title: String? = nil, details: String? = nil) -> IKHeaderView {
+    public func headerView(title: String? = nil, details: String? = nil) -> DHHeaderView {
 
-        let header = IKHeaderView()
+        let header = DHHeaderView()
         if let titleText = title {
             header.setTitleDetailValue(titleText, details)
         }
@@ -107,14 +107,14 @@ public struct Maker {
         return button
     }
 
-    public func iconLabel(image: UIImage = UIImage(), text: String?, insets: UIEdgeInsets = UIEdgeInsets.zero, uppercased: Bool) -> IKIconLabelView {
+    public func iconLabel(image: UIImage = UIImage(), text: String?, insets: UIEdgeInsets = UIEdgeInsets.zero, uppercased: Bool) -> DHIconLabelView {
         let modifiedText = uppercased ? text?.uppercased() : text
-        return IKIconLabelView(icon: image, text: modifiedText, insets: insets)
+        return DHIconLabelView(icon: image, text: modifiedText, insets: insets)
     }
 
 }
 
-public struct IKUIBuilder {
+public struct DHUIBuilder {
     public static let make = Maker()
     public static let get = Getter()
 
