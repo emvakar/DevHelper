@@ -9,9 +9,20 @@
 import UIKit
 import SnapKit
 
+public struct DHBarButtonItem {
+    let icon: UIImage?
+    let target: AnyObject?
+    let action: Selector?
+    let accessibilityName: String
+}
+
 extension UIBarButtonItem {
 
-    public static func items(_ items: [(icon: UIImage?, target: AnyObject?, action: Selector?, accessibilityName: String)]) -> UIBarButtonItem {
+    /// Get compacted barbutton items
+    ///
+    /// - Parameter items: array of struct for buttons
+    /// - Returns: only one barButton item
+    public static func items(_ items: [DHBarButtonItem]) -> UIBarButtonItem {
 
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -37,8 +48,7 @@ extension UIBarButtonItem {
             stackView.addArrangedSubview(button)
         }
 
-        let barButtonItem = UIBarButtonItem(customView: stackView)
-        return barButtonItem
+        return UIBarButtonItem(customView: stackView)
     }
 
     public static func item(icon: UIImage?, target: AnyObject?, action: Selector?, accessibilityName: String) -> UIBarButtonItem {

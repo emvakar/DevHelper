@@ -49,16 +49,4 @@ public extension UIColor {
             return retval
         }
     }
-
-    static func tkDefaultPinCodeBackground() -> UIColor {
-        return self.RGB(r: 10, g: 10, b: 10, a: 0.7)
-    }
-
-    public static func tkToastBackground() -> UIColor {
-        return self.RGB(r: 222, g: 223, b: 227)
-    }
-
-    public static func tkToastText() -> UIColor {
-        return self.RGB(r: 90, g: 94, b: 97)
-    }
 }
