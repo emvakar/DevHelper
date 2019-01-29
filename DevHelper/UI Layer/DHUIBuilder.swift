@@ -65,10 +65,10 @@ public struct Maker {
         return stackView
     }
 
-    public func roundButtonWith(title: String, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, white: Bool = true, mainColor: UIColor) -> UIButton {
+    public func roundButtonWith(title: String, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, whiteBackground: Bool = true, mainColor: UIColor) -> UIButton {
         let button = UIButton()
-        button.backgroundColor = white ? UIColor.white : mainColor
-        button.setTitleColor(white ? mainColor : UIColor.white, for: .normal)
+        button.backgroundColor = whiteBackground ? UIColor.white : mainColor
+        button.setTitleColor(whiteBackground ? mainColor : UIColor.white, for: .normal)
         button.titleLabel?.lineBreakMode = .byTruncatingTail
         button.contentHorizontalAlignment = textAlighnment
         if titleInsets != nil {
@@ -86,7 +86,7 @@ public struct Maker {
             iconView.snp.makeConstraints { (make) in
                 make.centerY.equalToSuperview()
                 make.left.equalToSuperview().offset(14)
-                make.height.equalTo(44)
+                make.height.equalTo(height)
                 make.width.equalTo(24)
             }
         }
