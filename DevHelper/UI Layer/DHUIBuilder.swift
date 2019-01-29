@@ -27,6 +27,13 @@ public struct Getter {
     }
 }
 
+/// Icon position
+public enum ImageInButtonPosition {
+    case left
+    case right
+    case center
+}
+
 public struct Maker {
 
     public func headerView(title: String? = nil, details: String? = nil) -> DHHeaderView {
@@ -65,7 +72,35 @@ public struct Maker {
         return stackView
     }
 
-    public func roundButtonWith(title: String, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, whiteBackground: Bool = true, mainColor: UIColor) -> UIButton {
+    public func buttonWithImage(icon: UIImage?, position: ImageInButtonPosition, iconColor: UIColor, size: CGSize, buttonHeigh: CGFloat? = nil) -> UIButton {
+        let button = UIButton()
+
+        guard let icon = icon else { return button }
+        let iconView = UIImageView(image: icon)
+        iconView.contentMode = .scaleAspectFit
+        button.addSubview(iconView)
+        iconView.image? = (iconView.image?.withRenderingMode(.alwaysTemplate))!
+        iconView.tintColor = iconColor
+        iconView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            switch position {
+            case .left: make.left.equalToSuperview()
+            case .right: make.right.equalToSuperview()
+            case .center: make.centerX.equalToSuperview()
+            }
+            make.width.equalTo(size.width)
+            make.height.equalTo(size.height)
+        }
+        
+        guard let height = buttonHeigh else { return button }
+        button.snp.makeConstraints {
+            $0.height.equalTo(height)
+        }
+        
+        return button
+    }
+
+    public func roundButtonWith(title: String, fontSize: CGFloat = 17, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, whiteBackground: Bool = true, mainColor: UIColor) -> UIButton {
         let button = UIButton()
         button.backgroundColor = whiteBackground ? UIColor.white : mainColor
         button.setTitleColor(whiteBackground ? mainColor : UIColor.white, for: .normal)
@@ -74,7 +109,7 @@ public struct Maker {
         if titleInsets != nil {
             button.contentEdgeInsets = titleInsets!
         }
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .regular)
         button.layer.cornerRadius = height / 2
         button.setTitle(title, for: .normal)
         if icon != nil {
