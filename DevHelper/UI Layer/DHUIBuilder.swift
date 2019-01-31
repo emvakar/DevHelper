@@ -8,6 +8,8 @@
 
 import UIKit
 
+let coeficient: CGFloat = UIScreen.main.bounds.width / 375.0
+
 public enum ViewOrientation {
     case vertical
     case horizontal
@@ -72,6 +74,46 @@ public struct Maker {
         return stackView
     }
 
+    public func buttonWithBottom(label: UILabel?, image: UIImage?, iconColor: UIColor, iconSize: CGFloat, cornerRadius: CGFloat = 0, showShadow: Bool) -> UIView {
+        let view = UIView()
+        
+        let button = UIButton(type: .custom)
+        view.addSubview(button)
+
+        button.setImage(image, for: .normal)
+        button.layer.cornerRadius = cornerRadius
+        button.layer.masksToBounds = cornerRadius > 0
+        button.backgroundColor = .white
+        
+        button.snp.makeConstraints {
+            $0.width.height.equalTo(iconSize)
+        }
+        
+        if let label = label {
+            view.addSubview(label)
+            
+            label.snp.makeConstraints {
+                $0.top.equalTo(button.snp.bottom)
+                $0.height.equalTo(coeficient * 35)
+                $0.left.equalToSuperview().offset(coeficient * -11)
+                $0.right.equalToSuperview().offset(coeficient * 11)
+                $0.bottom.equalToSuperview()
+            }
+            
+        }
+        
+        if showShadow {
+            button.layer.shadowColor = UIColor.black.withAlphaComponent(0.1).cgColor
+            button.layer.shadowOffset = CGSize(width: 0, height: 0)
+            button.layer.shadowOpacity = 1.0
+            button.layer.shadowRadius = 7
+            button.layer.masksToBounds = false
+        }
+        
+        
+        return view
+    }
+    
     public func buttonWithImage(icon: UIImage?, position: ImageInButtonPosition, iconColor: UIColor, size: CGSize, buttonHeigh: CGFloat? = nil) -> UIButton {
         let button = UIButton()
 
