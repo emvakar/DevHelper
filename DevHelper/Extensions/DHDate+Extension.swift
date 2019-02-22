@@ -10,6 +10,38 @@ import Foundation
 
 public extension Date {
 
+    ///
+    public func isSameDate(_ comparisonDate: Date) -> Bool {
+        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+        return order == .orderedSame
+    }
+    
+    public func isBeforeDate(_ comparisonDate: Date) -> Bool {
+        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+        
+        return order == .orderedAscending
+    }
+    
+    public func isAfterDate(_ comparisonDate: Date) -> Bool {
+        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+        return order == .orderedDescending
+    }
+    
+    public var startOfDay: Date {
+        return Calendar.current.startOfDay(for: self)
+    }
+    
+    public var endOfDay: Date? {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        return Calendar.current.date(byAdding: components, to: startOfDay)
+    }
+    
+    public var dateByLocalZone: Date {
+        return self.addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
+    }
+    
     // MARK: Convert from String
 
     /*
