@@ -8,7 +8,7 @@
 
 import UIKit
 
-let coeficient: CGFloat = UIScreen.main.bounds.width / 375.0
+let ratio: CGFloat = UIScreen.main.bounds.width / 375.0
 
 public enum ViewOrientation {
     case vertical
@@ -94,9 +94,9 @@ public struct Maker {
             
             label.snp.makeConstraints {
                 $0.top.equalTo(button.snp.bottom)
-                $0.height.equalTo(coeficient * 35)
-                $0.left.equalToSuperview().offset(coeficient * -11)
-                $0.right.equalToSuperview().offset(coeficient * 11)
+                $0.height.equalTo(ratio * 35)
+                $0.left.equalToSuperview().offset(ratio * -11)
+                $0.right.equalToSuperview().offset(ratio * 11)
                 $0.bottom.equalToSuperview()
             }
             
