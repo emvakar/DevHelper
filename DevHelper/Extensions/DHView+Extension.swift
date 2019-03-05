@@ -14,4 +14,13 @@ public extension UIView {
         self.layer.masksToBounds = self.layer.cornerRadius > 0
     }
     
+    public func setBorders(borderColor: UIColor, borderWidth: CGFloat) {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+    }
+    
+    public func removeBorders() {
+        self.layer.borderWidth = 0
+        self.layer.borderColor = UIColor.clear.cgColor
+    }
 }
