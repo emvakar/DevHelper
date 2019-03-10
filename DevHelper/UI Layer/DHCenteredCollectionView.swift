@@ -77,6 +77,7 @@ open class DHCenteredCollectionViewFlowLayout: UICollectionViewFlowLayout {
     }
     
     /// fadeInOut cells
+    // FIXME: - not working correctly
     fileprivate func fadeOutInCell(_ collectionView: UICollectionView, _ newOffset: CGFloat, _ proposedContentOffset: CGPoint) {
         if let currentIndexPath = collectionView.indexPathForItem(at: CGPoint(x: newOffset + 50, y: proposedContentOffset.y + 50)) {
             let prevIndex = IndexPath(item: currentIndexPath.item - 1, section: currentIndexPath.section)

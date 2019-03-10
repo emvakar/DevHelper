@@ -29,7 +29,8 @@ public extension UIColor {
             let message = "Please, add \"Config.plist\" to your project and insert dictionary called \"MainColor\" in it with fields \"red\", \"green\", \"blue\", with Int values from 0 to 255 and \"alpha\" field with Float value from 0 to 1"
 
             guard let path = Bundle.main.path(forResource: "Config", ofType: "plist") else {
-                fatalError("No file called \"Config.plist\" found in bundle\n\(message)")
+                print("No file called \"Config.plist\" found in bundle\n\(message)")
+                return .red
             }
             guard let myDict = NSDictionary(contentsOfFile: path) else {
                 fatalError("\"Config.plist\" is empty\n\(message)")

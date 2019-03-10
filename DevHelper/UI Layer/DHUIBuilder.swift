@@ -10,6 +10,10 @@ import UIKit
 
 let ratio: CGFloat = UIScreen.main.bounds.width / 375.0
 
+/// ViewOrientation
+///
+/// - vertical
+/// - horizontal
 public enum ViewOrientation {
     case vertical
     case horizontal
@@ -30,6 +34,10 @@ public struct Getter {
 }
 
 /// Icon position
+///
+/// - left
+/// - right
+/// - center
 public enum ImageInButtonPosition {
     case left
     case right
@@ -65,6 +73,13 @@ public struct Maker {
         return view
     }
 
+    /// Custom StackView
+    ///
+    /// - Parameters:
+    ///   - orientation: Stack View orientation, vertical/horizontal
+    ///   - distribution: UIStackView.Distribution
+    ///   - spacing: between subviews
+    /// - Returns: UIStackView
     public func stackView(orientation: NSLayoutConstraint.Axis = .vertical, distribution: UIStackView.Distribution = .fill, spacing: CGFloat = 0) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = orientation
