@@ -10,6 +10,17 @@ import Foundation
 
 public extension Date {
 
+    /// is the date at current month
+    ///
+    /// - Returns:
+    ///     - orderedAscending - previus from this month
+    ///     - orderedSame - same month
+    ///     - orderedDescending - next from this month
+    public func isSameMonth() -> ComparisonResult {
+        
+        return Calendar.current.compare(self, to: Date(), toGranularity: .month)
+    }
+    
     ///
     public func isSameDate(_ comparisonDate: Date) -> Bool {
         let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
