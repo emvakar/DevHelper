@@ -9,6 +9,10 @@ import UIKit
 
 public extension UIImage {
 
+    /// Colorize image
+    ///
+    /// - Parameter color: new color for image
+    /// - Returns: new colorized image
     public func mask(with color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         defer { UIGraphicsEndImageContext() }
