@@ -8,8 +8,6 @@
 
 import UIKit
 
-let ratio: CGFloat = UIScreen.main.bounds.width / 375.0
-
 /// ViewOrientation
 ///
 /// - vertical
@@ -106,10 +104,10 @@ public struct Maker {
         
         if let label = label {
             view.addSubview(label)
-            
+            let ratio: CGFloat = UIScreen.main.bounds.width / 375
             label.snp.makeConstraints {
                 $0.top.equalTo(button.snp.bottom)
-                $0.height.equalTo(ratio * 35)
+                $0.height.equalTo(35 * ratio)
                 $0.left.equalToSuperview().offset(ratio * -11)
                 $0.right.equalToSuperview().offset(ratio * 11)
                 $0.bottom.equalToSuperview()
