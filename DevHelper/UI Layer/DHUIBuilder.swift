@@ -139,8 +139,8 @@ public struct Maker {
         iconView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             switch position {
-            case .left: make.left.equalToSuperview().offset(offset ?? 0)
-            case .right: make.right.equalToSuperview().offset(-(offset ?? 0))
+            case .left: make.left.equalToSuperview().offset(iconOffset ?? 0)
+            case .right: make.right.equalToSuperview().offset(-(iconOffset ?? 0))
             case .center: make.centerX.equalToSuperview()
             }
             make.width.equalTo(size.width)
