@@ -11,7 +11,6 @@
 		205E4ED021F8E94E00ABB0D8 /* DevHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205E4ECF21F8E94E00ABB0D8 /* DevHelperTests.swift */; };
 		205E4ED221F8E94E00ABB0D8 /* DevHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 205E4EC421F8E94E00ABB0D8 /* DevHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		205E4EFB21F901A500ABB0D8 /* DevHelper.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 205E4EFA21F901A500ABB0D8 /* DevHelper.podspec */; };
-		205E4F1921F907C000ABB0D8 /* Pods_Moon_Astrology.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 205E4F1821F907C000ABB0D8 /* Pods_Moon_Astrology.framework */; };
 		20E543652249247C000BAA9C /* DHGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543602249247C000BAA9C /* DHGradientView.swift */; };
 		20E543662249247C000BAA9C /* DHHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543612249247C000BAA9C /* DHHeaderView.swift */; };
 		20E543672249247C000BAA9C /* DHCenteredCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543622249247C000BAA9C /* DHCenteredCollectionView.swift */; };
@@ -27,6 +26,31 @@
 		20E5437B2249248A000BAA9C /* DHSegment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543712249248A000BAA9C /* DHSegment+Extension.swift */; };
 		20E5437C2249248A000BAA9C /* DHUILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543722249248A000BAA9C /* DHUILabel+Extension.swift */; };
 		20E5437D2249248A000BAA9C /* DHView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E543732249248A000BAA9C /* DHView+Extension.swift */; };
+		20FB64C722576F92003F901D /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64A622576F92003F901D /* ImageProvider.swift */; };
+		20FB64C822576F92003F901D /* PlainModelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64A822576F92003F901D /* PlainModelSection.swift */; };
+		20FB64C922576F92003F901D /* PlainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64A922576F92003F901D /* PlainDataSource.swift */; };
+		20FB64CA22576F92003F901D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64AA22576F92003F901D /* SearchBarView.swift */; };
+		20FB64CB22576F92003F901D /* DailyModelSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64AC22576F92003F901D /* DailyModelSection.swift */; };
+		20FB64CC22576F92003F901D /* DailyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64AD22576F92003F901D /* DailyDataSource.swift */; };
+		20FB64CD22576F92003F901D /* TappableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64AE22576F92003F901D /* TappableButton.swift */; };
+		20FB64CE22576F92003F901D /* TableControllerStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B122576F92003F901D /* TableControllerStates.swift */; };
+		20FB64CF22576F92003F901D /* FilterToolBarStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B222576F92003F901D /* FilterToolBarStruct.swift */; };
+		20FB64D022576F92003F901D /* FilterNotificationStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B322576F92003F901D /* FilterNotificationStruct.swift */; };
+		20FB64D122576F92003F901D /* TableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B422576F92003F901D /* TableConfiguration.swift */; };
+		20FB64D222576F92003F901D /* TableViewOptionsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B522576F92003F901D /* TableViewOptionsStruct.swift */; };
+		20FB64D322576F92003F901D /* TableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B722576F92003F901D /* TableController.swift */; };
+		20FB64D422576F92003F901D /* BaseFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64B922576F92003F901D /* BaseFooterView.swift */; };
+		20FB64D522576F92003F901D /* CurtainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64BB22576F92003F901D /* CurtainView.swift */; };
+		20FB64D622576F92003F901D /* PageLoaderErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64BC22576F92003F901D /* PageLoaderErrorView.swift */; };
+		20FB64D722576F92003F901D /* TableFooterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64BD22576F92003F901D /* TableFooterContainerView.swift */; };
+		20FB64D822576F92003F901D /* ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64BE22576F92003F901D /* ToolBarView.swift */; };
+		20FB64D922576F92003F901D /* ToolBarNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64BF22576F92003F901D /* ToolBarNotificationView.swift */; };
+		20FB64DA22576F92003F901D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C022576F92003F901D /* LoadingView.swift */; };
+		20FB64DB22576F92003F901D /* TableFooterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C222576F92003F901D /* TableFooterProtocol.swift */; };
+		20FB64DC22576F92003F901D /* TableVCProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C322576F92003F901D /* TableVCProtocol.swift */; };
+		20FB64DD22576F92003F901D /* TableToolbarProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C422576F92003F901D /* TableToolbarProtocols.swift */; };
+		20FB64DE22576F92003F901D /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C522576F92003F901D /* TableViewModel.swift */; };
+		20FB64DF22576F92003F901D /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FB64C622576F92003F901D /* DataSource.swift */; };
 		508BF435515508BD0A9D67D2 /* Pods_DevHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 366CE5BADC64F8D4DB4D1C6F /* Pods_DevHelper.framework */; };
 		6F30F8D8B5F7B1B176F7A615 /* Pods_DevHelperTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD25EA29E92FED5D28280C52 /* Pods_DevHelperTests.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +90,31 @@
 		20E543712249248A000BAA9C /* DHSegment+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DHSegment+Extension.swift"; sourceTree = "<group>"; };
 		20E543722249248A000BAA9C /* DHUILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DHUILabel+Extension.swift"; sourceTree = "<group>"; };
 		20E543732249248A000BAA9C /* DHView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DHView+Extension.swift"; sourceTree = "<group>"; };
+		20FB64A622576F92003F901D /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		20FB64A822576F92003F901D /* PlainModelSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainModelSection.swift; sourceTree = "<group>"; };
+		20FB64A922576F92003F901D /* PlainDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainDataSource.swift; sourceTree = "<group>"; };
+		20FB64AA22576F92003F901D /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		20FB64AC22576F92003F901D /* DailyModelSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyModelSection.swift; sourceTree = "<group>"; };
+		20FB64AD22576F92003F901D /* DailyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDataSource.swift; sourceTree = "<group>"; };
+		20FB64AE22576F92003F901D /* TappableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TappableButton.swift; sourceTree = "<group>"; };
+		20FB64B122576F92003F901D /* TableControllerStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableControllerStates.swift; sourceTree = "<group>"; };
+		20FB64B222576F92003F901D /* FilterToolBarStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterToolBarStruct.swift; sourceTree = "<group>"; };
+		20FB64B322576F92003F901D /* FilterNotificationStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterNotificationStruct.swift; sourceTree = "<group>"; };
+		20FB64B422576F92003F901D /* TableConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableConfiguration.swift; sourceTree = "<group>"; };
+		20FB64B522576F92003F901D /* TableViewOptionsStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewOptionsStruct.swift; sourceTree = "<group>"; };
+		20FB64B722576F92003F901D /* TableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableController.swift; sourceTree = "<group>"; };
+		20FB64B922576F92003F901D /* BaseFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFooterView.swift; sourceTree = "<group>"; };
+		20FB64BB22576F92003F901D /* CurtainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurtainView.swift; sourceTree = "<group>"; };
+		20FB64BC22576F92003F901D /* PageLoaderErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageLoaderErrorView.swift; sourceTree = "<group>"; };
+		20FB64BD22576F92003F901D /* TableFooterContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFooterContainerView.swift; sourceTree = "<group>"; };
+		20FB64BE22576F92003F901D /* ToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarView.swift; sourceTree = "<group>"; };
+		20FB64BF22576F92003F901D /* ToolBarNotificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolBarNotificationView.swift; sourceTree = "<group>"; };
+		20FB64C022576F92003F901D /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		20FB64C222576F92003F901D /* TableFooterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableFooterProtocol.swift; sourceTree = "<group>"; };
+		20FB64C322576F92003F901D /* TableVCProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableVCProtocol.swift; sourceTree = "<group>"; };
+		20FB64C422576F92003F901D /* TableToolbarProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableToolbarProtocols.swift; sourceTree = "<group>"; };
+		20FB64C522576F92003F901D /* TableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		20FB64C622576F92003F901D /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		366CE5BADC64F8D4DB4D1C6F /* Pods_DevHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DevHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B88F72BC41FF0FD9958AD7 /* Pods-DevHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevHelper.debug.xcconfig"; path = "Target Support Files/Pods-DevHelper/Pods-DevHelper.debug.xcconfig"; sourceTree = "<group>"; };
 		67F6621AD28214690B8E7254 /* Pods-DevHelperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevHelperTests.debug.xcconfig"; path = "Target Support Files/Pods-DevHelperTests/Pods-DevHelperTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,7 +128,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				205E4F1921F907C000ABB0D8 /* Pods_Moon_Astrology.framework in Frameworks */,
 				508BF435515508BD0A9D67D2 /* Pods_DevHelper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +168,7 @@
 		205E4EC321F8E94E00ABB0D8 /* DevHelper */ = {
 			isa = PBXGroup;
 			children = (
+				20FB64A522576F92003F901D /* TableComponent */,
 				205E4F0921F9066F00ABB0D8 /* UI Layer */,
 				205E4EFD21F9062E00ABB0D8 /* Extensions */,
 				205E4EC421F8E94E00ABB0D8 /* DevHelper.h */,
@@ -177,6 +226,102 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		20FB64A522576F92003F901D /* TableComponent */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64A722576F92003F901D /* Plain */,
+				20FB64AB22576F92003F901D /* Daily */,
+				20FB64AF22576F92003F901D /* Table */,
+				20FB64A622576F92003F901D /* ImageProvider.swift */,
+				20FB64AA22576F92003F901D /* SearchBarView.swift */,
+				20FB64AE22576F92003F901D /* TappableButton.swift */,
+				20FB64C522576F92003F901D /* TableViewModel.swift */,
+				20FB64C622576F92003F901D /* DataSource.swift */,
+			);
+			path = TableComponent;
+			sourceTree = "<group>";
+		};
+		20FB64A722576F92003F901D /* Plain */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64A822576F92003F901D /* PlainModelSection.swift */,
+				20FB64A922576F92003F901D /* PlainDataSource.swift */,
+			);
+			path = Plain;
+			sourceTree = "<group>";
+		};
+		20FB64AB22576F92003F901D /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64AC22576F92003F901D /* DailyModelSection.swift */,
+				20FB64AD22576F92003F901D /* DailyDataSource.swift */,
+			);
+			path = Daily;
+			sourceTree = "<group>";
+		};
+		20FB64AF22576F92003F901D /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64B022576F92003F901D /* Configuration */,
+				20FB64B622576F92003F901D /* TableController */,
+				20FB64B822576F92003F901D /* Views */,
+				20FB64C122576F92003F901D /* Protocols */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		20FB64B022576F92003F901D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64B122576F92003F901D /* TableControllerStates.swift */,
+				20FB64B222576F92003F901D /* FilterToolBarStruct.swift */,
+				20FB64B322576F92003F901D /* FilterNotificationStruct.swift */,
+				20FB64B422576F92003F901D /* TableConfiguration.swift */,
+				20FB64B522576F92003F901D /* TableViewOptionsStruct.swift */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		20FB64B622576F92003F901D /* TableController */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64B722576F92003F901D /* TableController.swift */,
+			);
+			path = TableController;
+			sourceTree = "<group>";
+		};
+		20FB64B822576F92003F901D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64B922576F92003F901D /* BaseFooterView.swift */,
+				20FB64BA22576F92003F901D /* SupportingViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		20FB64BA22576F92003F901D /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64BB22576F92003F901D /* CurtainView.swift */,
+				20FB64BC22576F92003F901D /* PageLoaderErrorView.swift */,
+				20FB64BD22576F92003F901D /* TableFooterContainerView.swift */,
+				20FB64BE22576F92003F901D /* ToolBarView.swift */,
+				20FB64BF22576F92003F901D /* ToolBarNotificationView.swift */,
+				20FB64C022576F92003F901D /* LoadingView.swift */,
+			);
+			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		20FB64C122576F92003F901D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				20FB64C222576F92003F901D /* TableFooterProtocol.swift */,
+				20FB64C322576F92003F901D /* TableVCProtocol.swift */,
+				20FB64C422576F92003F901D /* TableToolbarProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		236C1D1C4D2538206A5D0BD8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +330,6 @@
 				67F6621AD28214690B8E7254 /* Pods-DevHelperTests.debug.xcconfig */,
 				A78772F72F0417AC9C2A7A5C /* Pods-DevHelperTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -352,21 +496,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20FB64D322576F92003F901D /* TableController.swift in Sources */,
+				20FB64C822576F92003F901D /* PlainModelSection.swift in Sources */,
 				20E543792249248A000BAA9C /* DHUIColor+Extension.swift in Sources */,
+				20FB64D922576F92003F901D /* ToolBarNotificationView.swift in Sources */,
+				20FB64CF22576F92003F901D /* FilterToolBarStruct.swift in Sources */,
+				20FB64D222576F92003F901D /* TableViewOptionsStruct.swift in Sources */,
 				20E543772249248A000BAA9C /* DHString+Extension.swift in Sources */,
 				20E5437B2249248A000BAA9C /* DHSegment+Extension.swift in Sources */,
 				20E543652249247C000BAA9C /* DHGradientView.swift in Sources */,
 				20E5437C2249248A000BAA9C /* DHUILabel+Extension.swift in Sources */,
+				20FB64D822576F92003F901D /* ToolBarView.swift in Sources */,
+				20FB64CD22576F92003F901D /* TappableButton.swift in Sources */,
 				20E543762249248A000BAA9C /* DHUIImage+Extension.swift in Sources */,
+				20FB64D022576F92003F901D /* FilterNotificationStruct.swift in Sources */,
+				20FB64CB22576F92003F901D /* DailyModelSection.swift in Sources */,
+				20FB64C922576F92003F901D /* PlainDataSource.swift in Sources */,
+				20FB64D722576F92003F901D /* TableFooterContainerView.swift in Sources */,
 				20E5437D2249248A000BAA9C /* DHView+Extension.swift in Sources */,
 				20E543782249248A000BAA9C /* DHDate+Extension.swift in Sources */,
+				20FB64D622576F92003F901D /* PageLoaderErrorView.swift in Sources */,
 				20E543682249247C000BAA9C /* DHUIBuilder.swift in Sources */,
 				20E543692249247C000BAA9C /* DHIconLabelView.swift in Sources */,
+				20FB64CA22576F92003F901D /* SearchBarView.swift in Sources */,
 				20E543752249248A000BAA9C /* DHUITextView+Extension.swift in Sources */,
+				20FB64DE22576F92003F901D /* TableViewModel.swift in Sources */,
+				20FB64DC22576F92003F901D /* TableVCProtocol.swift in Sources */,
+				20FB64D422576F92003F901D /* BaseFooterView.swift in Sources */,
+				20FB64D522576F92003F901D /* CurtainView.swift in Sources */,
+				20FB64CC22576F92003F901D /* DailyDataSource.swift in Sources */,
+				20FB64CE22576F92003F901D /* TableControllerStates.swift in Sources */,
 				20E543662249247C000BAA9C /* DHHeaderView.swift in Sources */,
+				20FB64DB22576F92003F901D /* TableFooterProtocol.swift in Sources */,
+				20FB64C722576F92003F901D /* ImageProvider.swift in Sources */,
 				20E543742249248A000BAA9C /* DHUIBarButtonItem+Extension.swift in Sources */,
 				20E5437A2249248A000BAA9C /* DHDouble+Extension.swift in Sources */,
+				20FB64DD22576F92003F901D /* TableToolbarProtocols.swift in Sources */,
 				20E543672249247C000BAA9C /* DHCenteredCollectionView.swift in Sources */,
+				20FB64DA22576F92003F901D /* LoadingView.swift in Sources */,
+				20FB64DF22576F92003F901D /* DataSource.swift in Sources */,
+				20FB64D122576F92003F901D /* TableConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
