@@ -9,55 +9,55 @@ import UIKit
 
 public enum GradientDirection {
 
-    case up
+    case top
     case left
     case right
-    case down
+    case bottom
 
-    case leftUp
-    case rightUp
+    case topLeft
+    case topRight
 
-    case leftDown
-    case rightDown
+    case bottomLeft
+    case bottomRight
 
     public var startPoint: CGPoint {
         switch self {
-        case .up:
+        case .top:
             return CGPoint(x: 0.5, y: 1)
         case .left:
             return CGPoint(x: 1, y: 0.5)
         case .right:
             return CGPoint(x: 0, y: 0.5)
-        case .down:
+        case .bottom:
             return CGPoint(x: 0.5, y: 0)
-        case .leftUp:
+        case .topLeft:
             return CGPoint(x: 1, y: 1)
-        case .rightUp:
+        case .topRight:
             return CGPoint(x: 0, y: 1)
-        case .leftDown:
+        case .bottomLeft:
             return CGPoint(x: 0, y: 0)
-        case .rightDown:
+        case .bottomRight:
             return CGPoint(x: 1, y: 0)
         }
     }
 
     public var endPoint: CGPoint {
         switch self {
-        case .up:
+        case .top:
             return CGPoint(x: 0.5, y: 0)
         case .left:
             return CGPoint(x: 0, y: 0.5)
         case .right:
             return CGPoint(x: 1, y: 0.5)
-        case .down:
+        case .bottom:
             return CGPoint(x: 0.5, y: 1)
-        case .leftUp:
+        case .topLeft:
             return CGPoint(x: 0, y: 0)
-        case .rightUp:
+        case .topRight:
             return CGPoint(x: 1, y: 0)
-        case .leftDown:
+        case .bottomLeft:
             return CGPoint(x: 0, y: 1)
-        case .rightDown:
+        case .bottomRight:
             return CGPoint(x: 1, y: 1)
         }
     }
@@ -85,7 +85,7 @@ public struct GradientConfiguration {
 
     public var cornerRadius: CGFloat = 0
 
-    public init(startColor: UIColor, endColor: UIColor, direction: GradientDirection? = nil, startPoint: CGPoint = GradientDirection.up.startPoint, endPoint: CGPoint = GradientDirection.up.endPoint) {
+    public init(startColor: UIColor, endColor: UIColor, direction: GradientDirection? = nil, startPoint: CGPoint = GradientDirection.top.startPoint, endPoint: CGPoint = GradientDirection.top.endPoint) {
         self.startColor = startColor
         self.endColor = endColor
 
