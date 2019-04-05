@@ -127,7 +127,7 @@ public struct Maker {
         return view
     }
     
-    public func buttonWithImage(icon: UIImage?, position: ImageInButtonPosition, iconColor: UIColor, size: CGSize, buttonHeigh: CGFloat? = nil, offset: Float?) -> UIButton {
+    public func buttonWithImage(icon: UIImage?, position: ImageInButtonPosition, iconColor: UIColor, size: CGSize, buttonHeigh: CGFloat? = nil, iconOffset: CGFloat? = nil) -> UIButton {
         let button = UIButton()
 
         guard let icon = icon else { return button }
@@ -139,8 +139,8 @@ public struct Maker {
         iconView.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             switch position {
-            case .left: make.left.equalToSuperview().offset(offset)
-            case .right: make.right.equalToSuperview().offset(-offset)
+            case .left: make.left.equalToSuperview().offset(offset ?? 0)
+            case .right: make.right.equalToSuperview().offset(-(offset ?? 0))
             case .center: make.centerX.equalToSuperview()
             }
             make.width.equalTo(size.width)
