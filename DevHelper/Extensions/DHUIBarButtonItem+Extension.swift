@@ -51,7 +51,7 @@ extension UIBarButtonItem {
         return UIBarButtonItem(customView: stackView)
     }
 
-    public static func item(icon: UIImage?, target: AnyObject?, action: Selector?, accessibilityName: String) -> UIBarButtonItem {
+    public static func item(icon: UIImage?, target: AnyObject?, action: Selector?, accessibilityName: String, width: CGFloat = 44, height: CGFloat = 44) -> UIBarButtonItem {
 
         let button = UIButton(type: .custom)
         button.setImage(icon, for: .normal)
@@ -65,12 +65,12 @@ extension UIBarButtonItem {
 
             button.snp.makeConstraints {
 
-                $0.width.equalTo(44)
-                $0.height.equalTo(44)
+                $0.width.equalTo(width)
+                $0.height.equalTo(height)
             }
         } else {
 
-            button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+            button.frame = CGRect(x: 0, y: 0, width: width, height: height)
         }
         let barButton = UIBarButtonItem(customView: button)
         return barButton
