@@ -60,7 +60,7 @@ public extension Date {
      
      - Returns: A Date() object if successfully converted from string or nil.
      */
-    init?(fromString string: String, format: DateFormatType, timeZone: TimeZoneType = .local, locale: Locale = Foundation.Locale.current) {
+    init?(fromString string: String, format: DateFormatType, timeZone: TimeZoneType = .local, locale: Locale = Locale.current) {
         guard !string.isEmpty else {
             return nil
         }
@@ -623,7 +623,7 @@ public enum TimeZoneType {
     case local, `default`, utc, custom(Int)
     var timeZone: TimeZone {
         switch self {
-        case .local: return NSTimeZone.local
+        case .local: return Calendar.current.timeZone
         case .default: return NSTimeZone.default
         case .utc: return TimeZone(secondsFromGMT: 0)!
         case let .custom(gmt): return TimeZone(secondsFromGMT: gmt)!
