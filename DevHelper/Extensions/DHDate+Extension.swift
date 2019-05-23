@@ -387,6 +387,7 @@ public extension Date {
     // MARK: Time since...
 
     func since(_ date: Date, in component: DateComponentType) -> Int64 {
+        let calendar = Calendar.current
         switch component {
         case .second:
             return Int64(timeIntervalSince(date))
@@ -397,32 +398,26 @@ public extension Date {
             let interval = timeIntervalSince(date)
             return Int64(interval / Date.hourInSeconds)
         case .day:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .day, in: .era, for: self)
             let start = calendar.ordinality(of: .day, in: .era, for: date)
             return Int64(end! - start!)
         case .weekday:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .weekday, in: .era, for: self)
             let start = calendar.ordinality(of: .weekday, in: .era, for: date)
             return Int64(end! - start!)
         case .nthWeekday:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .weekdayOrdinal, in: .era, for: self)
             let start = calendar.ordinality(of: .weekdayOrdinal, in: .era, for: date)
             return Int64(end! - start!)
         case .week:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .weekOfYear, in: .era, for: self)
             let start = calendar.ordinality(of: .weekOfYear, in: .era, for: date)
             return Int64(end! - start!)
         case .month:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .month, in: .era, for: self)
             let start = calendar.ordinality(of: .month, in: .era, for: date)
             return Int64(end! - start!)
         case .year:
-            let calendar = Calendar.current
             let end = calendar.ordinality(of: .year, in: .era, for: self)
             let start = calendar.ordinality(of: .year, in: .era, for: date)
             return Int64(end! - start!)
