@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import DevHelper
+//@testable import DevHelper
 
 class DevHelperTests: XCTestCase {
 
