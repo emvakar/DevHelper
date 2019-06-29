@@ -25,4 +25,27 @@ public extension String {
         let emoji = UnicodeScalar(ascii)?.description
         return emoji!
     }
+    
+    public func toDate(fromFormat: DateFormatType) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = fromFormat.stringFormat
+        return formatter.date(from: self)
+    }
+    
+    public func widthOfString(usingFont font: UIFont = UIFont.systemFont(ofSize: 17)) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
+    }
+    
+    public func heightOfString(usingFont font: UIFont = UIFont.systemFont(ofSize: 17)) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.height
+    }
+    
+    public func sizeOfString(usingFont font: UIFont = UIFont.systemFont(ofSize: 17)) -> CGSize {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        return self.size(withAttributes: fontAttributes)
+    }
 }

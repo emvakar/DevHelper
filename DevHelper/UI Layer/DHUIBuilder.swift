@@ -155,6 +155,20 @@ public struct Maker {
         return button
     }
 
+    public func radialButton(title: String) -> UIButton {
+        
+        let buttonSignin = DHUIBuilder.make.roundButtonWith(title: title, fontSize: 17, height: 34, arrow: false, textAlighnment: .center, whiteBackground: false, mainColor: UIColor.RGB(r: 56, g: 209, b: 133))
+        let start = UIColor.RGB(r: 86, g: 201, b: 214)
+        let end = UIColor.RGB(r: 56, g: 209, b: 133)
+        
+        DispatchQueue.main.async {
+            buttonSignin.applyGradient(start: start, end: end)
+            buttonSignin.layer.cornerRadius = 34 / 2
+        }
+        
+        return buttonSignin
+    }
+    
     public func roundButtonWith(title: String, fontSize: CGFloat = 17, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, whiteBackground: Bool = true, mainColor: UIColor) -> UIButton {
         let button = UIButton()
         button.backgroundColor = whiteBackground ? UIColor.white : mainColor
@@ -193,6 +207,7 @@ public struct Maker {
         }
         button.snp.makeConstraints { (make) in
             make.height.equalTo(height)
+            make.width.equalTo(140)
         }
         return button
     }

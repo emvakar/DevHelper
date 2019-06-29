@@ -7,7 +7,7 @@
 
 import UIKit
 
-public enum GradientDirection {
+public enum DHGradientDirection {
 
     case top
     case left
@@ -64,7 +64,7 @@ public enum GradientDirection {
 }
 
 /// Configuration struct
-public struct GradientConfiguration {
+public struct DHGradientConfiguration {
 
     /// colors
     public let startColor: UIColor
@@ -85,7 +85,7 @@ public struct GradientConfiguration {
 
     public var cornerRadius: CGFloat = 0
 
-    public init(startColor: UIColor, endColor: UIColor, direction: GradientDirection? = nil, startPoint: CGPoint = GradientDirection.top.startPoint, endPoint: CGPoint = GradientDirection.top.endPoint) {
+    public init(startColor: UIColor, endColor: UIColor, direction: DHGradientDirection? = nil, startPoint: CGPoint = DHGradientDirection.top.startPoint, endPoint: CGPoint = DHGradientDirection.top.endPoint) {
         self.startColor = startColor
         self.endColor = endColor
 
@@ -178,7 +178,7 @@ public class DHGradientView: UIView {
         }
     }
 
-    public init(_ config: GradientConfiguration) {
+    public init(_ config: DHGradientConfiguration) {
         super.init(frame: .zero)
 
         self.startColor = config.startColor
