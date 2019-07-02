@@ -16,40 +16,54 @@ public extension Date {
     ///     - orderedAscending - previus from this month
     ///     - orderedSame - same month
     ///     - orderedDescending - next from this month
-    public func isSameMonth() -> ComparisonResult {
-        
-        return Calendar.current.compare(self, to: Date(), toGranularity: .month)
+    func isSameMonth(timeZone: TimeZone = .current) -> ComparisonResult {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        return calendar.compare(self, to: Date(), toGranularity: .month)
     }
     
     ///
-    public func isSameDate(_ comparisonDate: Date) -> Bool {
-        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+    func isSameDate(_ comparisonDate: Date, timeZone: TimeZone = .current) -> Bool {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        let order = calendar.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedSame
     }
     
-    public func isBeforeDate(_ comparisonDate: Date) -> Bool {
-        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+    func isBeforeDate(_ comparisonDate: Date, timeZone: TimeZone = .current) -> Bool {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        let order = calendar.compare(self, to: comparisonDate, toGranularity: .day)
         
         return order == .orderedAscending
     }
     
-    public func isAfterDate(_ comparisonDate: Date) -> Bool {
-        let order = Calendar.current.compare(self, to: comparisonDate, toGranularity: .day)
+    func isAfterDate(_ comparisonDate: Date, timeZone: TimeZone = .current) -> Bool {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        let order = calendar.compare(self, to: comparisonDate, toGranularity: .day)
         return order == .orderedDescending
     }
     
-    public var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
+    func calendar(timeZone: TimeZone = .current) -> Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        return calendar
     }
     
-    public var endOfDay: Date? {
+    var startOfDay: Date {
+        return calendar().startOfDay(for: self)
+    }
+    
+    var endOfDay: Date? {
+
         var components = DateComponents()
         components.day = 1
         components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfDay)
+        return calendar().date(byAdding: components, to: startOfDay)
     }
     
-    public var dateByLocalZone: Date {
+    var dateByLocalZone: Date {
         return self.addingTimeInterval(TimeInterval(TimeZone.current.secondsFromGMT()))
     }
     
@@ -247,28 +261,28 @@ public extension Date {
     // MARK: Compare Dates
 
     /// Compares dates to see if they are equal while ignoring time.
-    func compare(_ comparison: DateComparisonType) -> Bool {
+    func compare(_ comparison: DateComparisonType, timeZone: TimeZone) -> Bool {
         switch comparison {
         case .isToday:
-            return compare(.isSameDay(as: Date()))
+            return compare(.isSameDay(as: Date()), timeZone: timeZone)
         case .isTomorrow:
             let comparison = Date().adjust(.day, offset: 1)
-            return compare(.isSameDay(as: comparison))
+            return compare(.isSameDay(as: comparison), timeZone: timeZone)
         case .isYesterday:
             let comparison = Date().adjust(.day, offset: -1)
-            return compare(.isSameDay(as: comparison))
+            return compare(.isSameDay(as: comparison), timeZone: timeZone)
         case .isSameDay(let date):
             return component(.year) == date.component(.year)
                 && component(.month) == date.component(.month)
                 && component(.day) == date.component(.day)
         case .isThisWeek:
-            return self.compare(.isSameWeek(as: Date()))
+            return self.compare(.isSameWeek(as: Date()), timeZone: timeZone)
         case .isNextWeek:
             let comparison = Date().adjust(.week, offset: 1)
-            return compare(.isSameWeek(as: comparison))
+            return compare(.isSameWeek(as: comparison), timeZone: timeZone)
         case .isLastWeek:
             let comparison = Date().adjust(.week, offset: -1)
-            return compare(.isSameWeek(as: comparison))
+            return compare(.isSameWeek(as: comparison), timeZone: timeZone)
         case .isSameWeek(let date):
             if component(.week) != date.component(.week) {
                 return false
@@ -276,37 +290,38 @@ public extension Date {
             // Ensure time interval is under 1 week
             return abs(self.timeIntervalSince(date)) < Date.weekInSeconds
         case .isThisMonth:
-            return self.compare(.isSameMonth(as: Date()))
+            return self.compare(.isSameMonth(as: Date()), timeZone: timeZone)
         case .isNextMonth:
             let comparison = Date().adjust(.month, offset: 1)
-            return compare(.isSameMonth(as: comparison))
+            return compare(.isSameMonth(as: comparison), timeZone: timeZone)
         case .isLastMonth:
             let comparison = Date().adjust(.month, offset: -1)
-            return compare(.isSameMonth(as: comparison))
+            return compare(.isSameMonth(as: comparison), timeZone: timeZone)
         case .isSameMonth(let date):
             return component(.year) == date.component(.year) && component(.month) == date.component(.month)
         case .isThisYear:
-            return self.compare(.isSameYear(as: Date()))
+            return self.compare(.isSameYear(as: Date()), timeZone: timeZone)
         case .isNextYear:
             let comparison = Date().adjust(.year, offset: 1)
-            return compare(.isSameYear(as: comparison))
+            return compare(.isSameYear(as: comparison), timeZone: timeZone)
         case .isLastYear:
             let comparison = Date().adjust(.year, offset: -1)
-            return compare(.isSameYear(as: comparison))
+            return compare(.isSameYear(as: comparison), timeZone: timeZone)
         case .isSameYear(let date):
             return component(.year) == date.component(.year)
         case .isInTheFuture:
-            return self.compare(.isLater(than: Date()))
+            return self.compare(.isLater(than: Date()), timeZone: timeZone)
         case .isInThePast:
-            return self.compare(.isEarlier(than: Date()))
+            return self.compare(.isEarlier(than: Date()), timeZone: timeZone)
         case .isEarlier(let date):
             return (self as NSDate).earlierDate(date) == self
         case .isLater(let date):
             return (self as NSDate).laterDate(date) == self
         case .isWeekday:
-            return !compare(.isWeekend)
+            return !compare(.isWeekend, timeZone: timeZone)
         case .isWeekend:
-            let range = Calendar.current.maximumRange(of: Calendar.Component.weekday)!
+            let calendar = self.calendar(timeZone: timeZone)
+            let range = calendar.maximumRange(of: Calendar.Component.weekday)!
             return (component(.weekday) == range.lowerBound || component(.weekday) == range.upperBound - range.lowerBound)
         }
 
@@ -317,7 +332,7 @@ public extension Date {
 
     /// Creates a new date with adjusted components
 
-    func adjust(_ component: DateComponentType, offset: Int) -> Date {
+    func adjust(_ component: DateComponentType, offset: Int, timeZone: TimeZone = .current) -> Date {
         var dateComp = DateComponents()
         switch component {
         case .second:
@@ -339,18 +354,21 @@ public extension Date {
         case .year:
             dateComp.year = offset
         }
-        return Calendar.current.date(byAdding: dateComp, to: self)!
+        let calendar = self.calendar(timeZone: timeZone)
+        return calendar.date(byAdding: dateComp, to: self)!
     }
 
     /// Return a new Date object with the new hour, minute and seconds values.
-    func adjust(hour: Int?, minute: Int?, second: Int?, day: Int? = nil, month: Int? = nil) -> Date {
+    func adjust(hour: Int?, minute: Int?, second: Int?, day: Int? = nil, month: Int? = nil, timeZone: TimeZone = .current) -> Date {
         var comp = Date.components(self)
         comp.month = month ?? comp.month
         comp.day = day ?? comp.day
         comp.hour = hour ?? comp.hour
         comp.minute = minute ?? comp.minute
         comp.second = second ?? comp.second
-        return Calendar.current.date(from: comp)!
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        return calendar.date(from: comp)!
     }
 
     // MARK: Date for...
@@ -452,8 +470,10 @@ public extension Date {
         }
     }
 
-    func numberOfDaysInMonth() -> Int {
-        let range = Calendar.current.range(of: Calendar.Component.day, in: Calendar.Component.month, for: self)!
+    func numberOfDaysInMonth(timeZone: TimeZone = .current) -> Int {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        let range = calendar.range(of: Calendar.Component.day, in: Calendar.Component.month, for: self)!
         return range.upperBound - range.lowerBound
     }
 
@@ -474,8 +494,10 @@ public extension Date {
     // MARK: Internal Components
 
     internal static func componentFlags() -> Set<Calendar.Component> { return [Calendar.Component.year, Calendar.Component.month, Calendar.Component.day, Calendar.Component.weekOfYear, Calendar.Component.hour, Calendar.Component.minute, Calendar.Component.second, Calendar.Component.weekday, Calendar.Component.weekdayOrdinal, Calendar.Component.weekOfYear] }
-    internal static func components(_ fromDate: Date) -> DateComponents {
-        return Calendar.current.dateComponents(Date.componentFlags(), from: fromDate)
+    internal static func components(_ fromDate: Date, timeZone: TimeZone = .current) -> DateComponents {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = timeZone
+        return calendar.dateComponents(Date.componentFlags(), from: fromDate)
     }
 
 
@@ -615,8 +637,9 @@ extension DateFormatType: Equatable {
 
 /// The time zone to be used for date conversion
 public enum TimeZoneType {
+    
     case local, `default`, utc, custom(Int)
-    var timeZone: TimeZone {
+    public var timeZone: TimeZone {
         switch self {
         case .local: return Calendar.current.timeZone
         case .default: return NSTimeZone.default
