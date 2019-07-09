@@ -52,7 +52,10 @@ public extension Date {
     }
     
     var startOfDay: Date {
-        return calendar().startOfDay(for: self)
+        var start = calendar().startOfDay(for: self)
+        let timeZoneTimeInterval = TimeZone.current.secondsFromGMT()
+        start.addTimeInterval(Double(timeZoneTimeInterval))
+        return start
     }
     
     var endOfDay: Date? {
