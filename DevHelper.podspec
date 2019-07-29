@@ -1,8 +1,7 @@
 Pod::Spec.new do |s|
     
     # 1
-    s.platform = :ios
-    s.ios.deployment_target = '10.0'
+    s.platforms = { :ios => "10.0", :osx => "10.14", :watchos => "5.0", :tvos => "10.0" }
     s.name = "DevHelper"
     s.summary = "DevHelper swift 4.2 framework for simple development amazing apps."
     s.requires_arc = true

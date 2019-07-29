@@ -52,7 +52,7 @@ public extension Date {
     }
     
     var startOfDay: Date {
-        return calendar().startOfDay(for: self)
+        return calendar(timeZone: TimeZone(identifier: "UTC")!).startOfDay(for: self)
     }
     
     var endOfDay: Date? {
@@ -60,7 +60,7 @@ public extension Date {
         var components = DateComponents()
         components.day = 1
         components.second = -1
-        return calendar().date(byAdding: components, to: startOfDay)
+        return calendar(timeZone: TimeZone(identifier: "UTC")!).date(byAdding: components, to: startOfDay)
     }
     
     var dateByLocalZone: Date {
