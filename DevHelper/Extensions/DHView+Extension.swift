@@ -9,12 +9,12 @@ import UIKit
 
 public extension UIView {
 
-    public func applyGradient(start: UIColor, end: UIColor, locations: [NSNumber]? = [0.0, 0.8], startPoint: CGPoint = CGPoint(x: 1, y: 0.5), endPoint: CGPoint = CGPoint(x: 0, y: 0.5)) -> Void {
+    public func applyGradient(start: UIColor, end: UIColor, locations: [NSNumber]? = [0.0, 0.8], startPoint: CGPoint = CGPoint(x: 0, y: 0.5), endPoint: CGPoint = CGPoint(x: 1, y: 0.5), rounded: Bool = true) -> Void {
 
-        self.applyGradient(colours: [start, end], locations: locations, startPoint: startPoint, endPoint: endPoint)
+        self.applyGradient(colours: [start, end], locations: locations, startPoint: startPoint, endPoint: endPoint, rounded: rounded)
     }
 
-    private func applyGradient(colours: [UIColor], locations: [NSNumber]?, startPoint: CGPoint, endPoint: CGPoint) -> Void {
+    private func applyGradient(colours: [UIColor], locations: [NSNumber]?, startPoint: CGPoint, endPoint: CGPoint, rounded: Bool) -> Void {
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = self.bounds
         gradient.colors = colours.map { $0.cgColor }
@@ -22,7 +22,9 @@ public extension UIView {
         gradient.startPoint = startPoint
         gradient.endPoint = endPoint
         self.layer.insertSublayer(gradient, at: 0)
-        self.cornerRadius(self.frame.height / 2)
+        if rounded {
+            self.cornerRadius(self.frame.height / 2)
+        }
     }
 
     public func cornerRadius(_ radius: CGFloat = 10) {
