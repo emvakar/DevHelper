@@ -163,7 +163,7 @@ public struct Maker {
         
         DispatchQueue.main.async {
             buttonSignin.applyGradient(start: start, end: end)
-            buttonSignin.layer.cornerRadius = 34 / 2
+            buttonSignin.layer.cornerRadius = 10
             buttonSignin.layoutIfNeeded()
         }
         buttonSignin.setNeedsLayout()
