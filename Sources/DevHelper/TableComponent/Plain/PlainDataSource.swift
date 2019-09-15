@@ -66,7 +66,7 @@ extension PlainDataSource {
         var sectionsCopy = self.section.getItems()
         for indexPath in indexPaths {
             let deletedModel = self.section.getItemAtIndex(index: indexPath.row)
-            let index = sectionsCopy.index(of: deletedModel)
+            let index = sectionsCopy.firstIndex(of: deletedModel)
             sectionsCopy.remove(at: index!)
         }
         self.section.setItems(sectionsCopy)

@@ -30,7 +30,7 @@ public class PlainModelSection<T: Equatable> {
     }
 
     public func getIndexForModel(_ model: T) -> Int? {
-        return self.items.index(where: { $0 == model })
+        return self.items.firstIndex(where: { $0 == model })
     }
 
     public func removeItemAt(_ index: Int) {

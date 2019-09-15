@@ -13,7 +13,7 @@ public extension UIImage {
     ///
     /// - Parameter color: new color for image
     /// - Returns: new colorized image
-    public func mask(with color: UIColor) -> UIImage {
+    func mask(with color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         defer { UIGraphicsEndImageContext() }
 
