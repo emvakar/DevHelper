@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "KRActivityIndicatorView",
+        "repositoryURL": "https://github.com/ESKARIA/KRActivityIndicatorView.git",
+        "state": {
+          "branch": "swiftPM",
+          "revision": "0139bddb410a68156fe948d2349b9842a0bccfc2",
+          "version": null
+        }
+      },
+      {
+        "package": "KRProgressHUD",
+        "repositoryURL": "https://github.com/ESKARIA/KRProgressHUD.git",
+        "state": {
+          "branch": "swiftPM",
+          "revision": "cfe505f7dbc532527bc25134abe7f1a941c28f05",
+          "version": null
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
         "state": {
