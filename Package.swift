@@ -11,7 +11,6 @@ let package = Package(name: "DevHelper", platforms: [.iOS(.v11)],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
          .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
-         .package(url: "https://github.com/ESKARIA/KRProgressHUD.git",  .branch("swiftPM")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

@@ -9,6 +9,7 @@
 import UIKit
 
 public class InterfaceImageProvider {
+
     private static var bundle: Bundle?
     private static let onceTracker: () = {
 

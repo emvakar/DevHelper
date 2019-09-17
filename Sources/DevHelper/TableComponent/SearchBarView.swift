@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 public struct SearchBarViewContent {
+
     public var placeholderText: String = "Поиск"
     public var searchImage: UIImage?
     public var cancelImage: UIImage?

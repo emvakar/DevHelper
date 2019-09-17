@@ -9,6 +9,7 @@
 import Foundation
 
 public protocol DataSource {
+
     associatedtype T
 
     func setClient(_ client: DataSourceClient)
@@ -28,7 +29,7 @@ extension DataSource {
 
     public func compareUnknownType(a: Any, b: Any) -> Bool {
 
-        if let va = a as? Int, let vb = b as? Int {return va > vb} else if let va = a as? String, let vb = b as? String {return va > vb} else if let va = a as? Date, let vb = b as? Date {return va > vb} else if let va = a as? Double, let vb = b as? Double {return va > vb} else if let va = a as? Float, let vb = b as? Float {return va > vb} else {
+        if let va = a as? Int, let vb = b as? Int { return va > vb } else if let va = a as? String, let vb = b as? String { return va > vb } else if let va = a as? Date, let vb = b as? Date { return va > vb } else if let va = a as? Double, let vb = b as? Double { return va > vb } else if let va = a as? Float, let vb = b as? Float { return va > vb } else {
 
             fatalError("tried to compare unsupported type")
         }
