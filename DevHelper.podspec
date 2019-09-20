@@ -26,11 +26,11 @@ Pod::Spec.new do |s|
     s.dependency 'SnapKit', '4.2.0'
     
     # 8
-    s.source_files = "DevHelper/**/*.{swift}"
+    s.source_files = "Sources/DevHelper/**/*.{swift}"
     
     # 9
-    s.resources = "DevHelper/**/*.{png,jpeg,jpg,storyboard,xib}"
+    s.resources = "Sources/DevHelper/**/*.{png,jpeg,jpg,storyboard,xib}"
     s.resource_bundles = {
-        'DevHelperAssets' => ['DevHelper/**/*.xcassets']
+        'DevHelperAssets' => ['Sources/DevHelper/**/*.xcassets']
     }
 end
