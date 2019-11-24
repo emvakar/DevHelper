@@ -22,6 +22,14 @@ extension UITableViewCell: UITableViewCellIdentifierProvider {
     }
 }
 
+extension UICollectionViewCell: UITableViewCellIdentifierProvider {
+
+    static public func getIdentifier() -> String {
+
+        return String(describing: self)
+    }
+}
+
 // MARK: - All business logic in TableController, TableController+Filter, TableController+DataSource
 // MARK: - UIViewController
 public class TableController: UIViewController {
