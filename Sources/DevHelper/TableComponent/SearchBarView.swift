@@ -59,7 +59,7 @@ open class SearchBarView: UISearchBar {
         if let textFieldInsideSearchBar = self.value(forKey: "searchField") as? UITextField {
 
             textFieldInsideSearchBar.textColor = UIColor.white
-            textFieldInsideSearchBar.setValue(UIColor.white, forKeyPath: "_placeholderLabel.textColor")
+            textFieldInsideSearchBar.setValue(UIColor.white, forKeyPath: "placeholderLabel.textColor")
             textFieldInsideSearchBar.backgroundColor = searchBarViewContent.fieldBackground
             textFieldInsideSearchBar.textAlignment = .left
             textFieldInsideSearchBar.accessibilityLabel = "search Field"
@@ -68,7 +68,7 @@ open class SearchBarView: UISearchBar {
                 glassIconView.image = glassIconView.image?.withRenderingMode(.alwaysTemplate)
                 glassIconView.tintColor = UIColor.white.withAlphaComponent(0.5)
             }
-            if let clearButton = textFieldInsideSearchBar.value(forKey: "_clearButton") as? UIButton {
+            if let clearButton = textFieldInsideSearchBar.value(forKey: "clearButton") as? UIButton {
                 let image = searchBarViewContent.cancelImage
                 clearButton.setImage(image, for: .normal)
                 clearButton.tintColor = .white
