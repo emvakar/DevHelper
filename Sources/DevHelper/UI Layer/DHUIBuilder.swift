@@ -252,7 +252,7 @@ public struct Maker {
         }
         button.snp.makeConstraints { (make) in
             make.height.equalTo(height)
-            make.width.equalTo(140)
+            make.width.equalTo(140).priority(100)
         }
         return button
     }
