@@ -87,6 +87,30 @@ public struct Maker {
         return stackView
     }
 
+    public func buttonLikeLink(title: String?, colorText: UIColor = UIColor.lightGray.withAlphaComponent(0.5), colorSeparator: UIColor = UIColor.lightGray.withAlphaComponent(0.5)) -> UIView  {
+        let containerView = UIView()
+        let label = UILabel.makeLabel(size: 14, weight: .regular, color: colorText)
+        label.textAlignment = .center
+        label.textColor = colorText
+        label.numberOfLines = 0
+        let separatorView = UIView()
+        separatorView.backgroundColor = colorSeparator
+    
+        containerView.addSubview(label)
+        containerView.addSubview(separatorView)
+        
+        label.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        separatorView.snp.makeConstraints {
+            $0.left.right.bottom.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        
+        return containerView
+    }
+    
     public func buttonWithBottom(label: UILabel?, image: UIImage?, iconColor: UIColor, iconSize: CGFloat, cornerRadius: CGFloat = 0, showShadow: Bool) -> UIView {
         let view = UIView()
         
