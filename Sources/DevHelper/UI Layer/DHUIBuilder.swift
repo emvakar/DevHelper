@@ -214,6 +214,49 @@ public struct Maker {
         return button
     }
 
+    public func cornerButton(title: String, fontSize: CGFloat = 17, icon: UIImage? = nil, titleInsets: UIEdgeInsets? = nil, height: CGFloat = 44, arrow: Bool = false, textAlighnment: UIControl.ContentHorizontalAlignment = .center, whiteBackground: Bool = true, mainColor: UIColor, cornerRadius: CGFloat = 22) -> UIButton {
+        let button = UIButton()
+        button.backgroundColor = whiteBackground ? UIColor.white : mainColor
+        button.setTitleColor(whiteBackground ? mainColor : UIColor.white, for: .normal)
+        button.titleLabel?.lineBreakMode = .byTruncatingTail
+        button.contentHorizontalAlignment = textAlighnment
+        if titleInsets != nil {
+            button.contentEdgeInsets = titleInsets!
+        }
+        button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize, weight: .regular)
+        button.layer.cornerRadius = cornerRadius
+        button.setTitle(title, for: .normal)
+        if icon != nil {
+            let iconView = UIImageView(image: icon!)
+            iconView.contentMode = .scaleAspectFit
+            button.addSubview(iconView)
+            iconView.image? = (iconView.image?.withRenderingMode(.alwaysTemplate))!
+            iconView.tintColor = mainColor
+            iconView.snp.makeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.left.equalToSuperview().offset(14)
+                make.height.equalTo(height)
+                make.width.equalTo(24)
+            }
+        }
+        if arrow {
+            let arrowView = UIImageView(image: UIImage(named: "ArrowRight"))
+            arrowView.contentMode = .center
+            arrowView.image = arrowView.image?.withRenderingMode(.alwaysTemplate)
+            arrowView.tintColor = mainColor
+            button.addSubview(arrowView)
+            arrowView.snp.makeConstraints { (make) in
+                make.centerY.equalToSuperview()
+                make.right.equalToSuperview().offset(-13)
+            }
+        }
+        button.snp.makeConstraints { (make) in
+            make.height.equalTo(height)
+            make.width.equalTo(140)
+        }
+        return button
+    }
+    
     public func iconLabel(image: UIImage = UIImage(), text: String?, insets: UIEdgeInsets = UIEdgeInsets.zero, uppercased: Bool) -> DHIconLabelView {
         let modifiedText = uppercased ? text?.uppercased() : text
         return DHIconLabelView(icon: image, text: modifiedText, insets: insets)
