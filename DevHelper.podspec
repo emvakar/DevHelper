@@ -34,4 +34,7 @@ Pod::Spec.new do |s|
     s.resource_bundles = {
         'DevHelperAssets' => ['Sources/DevHelper/**/*.xcassets']
     }
+
+    # 10
+    s.swift_version = "5.1"
 end
