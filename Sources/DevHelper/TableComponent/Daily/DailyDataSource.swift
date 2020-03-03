@@ -297,7 +297,7 @@ extension DailyDataSource {
         }
     }
 
-    public func updateModels(models: [T], animated: Bool) {
+    public func updateModels(models: [T], animated: Bool, compare: (T,T) -> Bool) {
 
         self.queue.async {
 

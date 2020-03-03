@@ -135,38 +135,67 @@ extension PlainDataSource {
 // MARK: - Update
 extension PlainDataSource {
 
-    public func updateModels(models: [Template], animated: Bool) {
+    public func updateModels(models: [Template], animated: Bool, compare: (Template, Template) -> Bool) {
+
         var updatedItemsIndexes: [IndexPath] = []
         let insertedSectionIndex = NSMutableIndexSet()
+        let deletedSectionIndex = NSMutableIndexSet()
         var insertedItemsIndexes: [IndexPath] = []
-
-        if models.isEmpty {
-            return
-        }
+        var deletedItemsIndexes: [IndexPath] = []
 
         if self.section.getItemsCount() == 0 && self.numberOfSections() == 0 {
             insertedSectionIndex.add(0)
         }
 
+        let combinations = self.section.getItems().flatMap { firstElement in (firstElement, models.first { secondElement in compare(firstElement, secondElement) }) }
+        let common = combinations.filter { $0.1 != nil }.flatMap { ($0.0, $0.1!) }
+        let removed = combinations.filter { $0.1 == nil }.flatMap { ($0.0) }
+        let inserted = models.filter { secondElement in !common.contains { compare($0.0, secondElement) } }
+
+
         for model in models {
             if let index = self.section.getIndexForModel(model) {
                 updatedItemsIndexes.append(IndexPath(row: index, section: 0))
-            } else {
-                insertedItemsIndexes.append(IndexPath(row: self.section.getItemsCount(), section: 0))
-                self.section.addItem(item: model)
             }
+        }
+
+        for model in inserted {
+            insertedItemsIndexes.append(IndexPath(row: self.section.getItemsCount(), section: 0))
+            self.section.addItem(item: model)
+        }
+
+        for model in removed {
+            if let row = self.section.getIndexForModel(model) {
+                deletedItemsIndexes.append(IndexPath(row: row, section: 0))
+            }
+        }
+
+        var sectionsCopy = self.section.getItems()
+        for indexPath in deletedItemsIndexes {
+            let deletedModel = self.section.getItemAtIndex(index: indexPath.row)
+            if let index = sectionsCopy.firstIndex(of: deletedModel) {
+                sectionsCopy.remove(at: index)
+            }
+        }
+        self.section.setItems(sectionsCopy)
+
+        if self.section.getItemsCount() == 0 {
+            deletedSectionIndex.add(0)
         }
 
         var updateParams = ModelTableUpdateParams.getEmpty()
         updateParams.sectionsInsert = insertedSectionIndex as IndexSet
         updateParams.rowsInsert = insertedItemsIndexes
         updateParams.rowsUpdate = updatedItemsIndexes
+        updateParams.rowsDelete = deletedItemsIndexes
+        updateParams.sectionsDelete = deletedSectionIndex as IndexSet
 
         let updateModel = animated ? ModelTableUpdate(updateType: .update, params: updateParams) : ModelTableUpdate(updateType: .reload)
         self.client?.updateWithModel(model: updateModel)
     }
 
     func updateModelsByIndexPaths(indexPaths: [IndexPath], animated: Bool) {
+
         var models = [Template]()
 
         for indexPath in indexPaths {
@@ -174,6 +203,6 @@ extension PlainDataSource {
             models.append(model)
         }
 
-        self.updateModels(models: models, animated: animated)
+        self.updateModels(models: models, animated: animated, compare: ==)
     }
 }

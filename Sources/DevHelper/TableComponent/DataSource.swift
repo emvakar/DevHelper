@@ -19,7 +19,7 @@ public protocol DataSource {
     func getModelAtIndexPath(indexPath: IndexPath) -> T
     func removeModels(animated: Bool)
     func insertModels(models: [T], animated: Bool)
-    func updateModels(models: [T], animated: Bool)
+    func updateModels(models: [T], animated: Bool, compare: (T,T) -> Bool)
     func deleteModelAtIndexPaths(indexPaths: [IndexPath], animated: Bool)
 
     func compareUnknownType(a: Any, b: Any) -> Bool
