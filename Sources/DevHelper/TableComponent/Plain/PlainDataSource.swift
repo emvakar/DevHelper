@@ -152,7 +152,6 @@ extension PlainDataSource {
         let removed = combinations.filter { $0.1 == nil }.flatMap { ($0.0) }
         let inserted = models.filter { secondElement in !common.contains { compare($0.0, secondElement) } }
 
-
         for model in models {
             if let index = self.section.getIndexForModel(model) {
                 updatedItemsIndexes.append(IndexPath(row: index, section: 0))
