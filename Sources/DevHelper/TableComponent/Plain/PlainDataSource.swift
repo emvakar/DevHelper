@@ -178,7 +178,7 @@ extension PlainDataSource {
         }
         self.section.setItems(sectionsCopy)
 
-        if self.section.getItemsCount() == 0 {
+        if self.section.getItemsCount() == 0 && self.numberOfSections() > 0 {
             deletedSectionIndex.add(0)
         }
 
