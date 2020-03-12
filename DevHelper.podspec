@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     
     # 2
-    s.version = "1.0.0"
+    s.version = "1.0.1"
     
     # 3
     s.license = { :type => "MIT", :file => "LICENSE" }
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
     s.framework = "UIKit"
     s.dependency 'SnapKit', '~> 5.0.0'
     s.dependency 'KRProgressHUD', '~> 3.4.1'
+    s.dependency 'DeepDiff', '~> 2.3.1'
     
     # 8
     s.source_files = "Sources/DevHelper/**/*.{swift}"
