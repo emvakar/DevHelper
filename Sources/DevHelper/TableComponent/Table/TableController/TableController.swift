@@ -485,7 +485,10 @@ extension TableController: DataSourceClient {
             reload { self.tableView.reloadData() }
 
         case .update:
-            let values = model.params!
+            guard let values = model.params else {
+                reload { self.tableView.reloadData() }
+                return
+            }
 
             reload {
                 self.tableView.beginUpdates()

@@ -143,7 +143,7 @@ extension PlainDataSource {
         var insertedItemsIndexes: [IndexPath] = []
         var deletedItemsIndexes: [IndexPath] = []
 
-        if self.section.getItemsCount() == 0 && self.numberOfSections() == 0 {
+        if self.section.getItemsCount() == 0 && self.numberOfSections() == 0 && !models.isEmpty {
             insertedSectionIndex.add(0)
         }
 
@@ -179,7 +179,7 @@ extension PlainDataSource {
         self.section.setItems(sectionsCopy)
 
         if self.section.getItemsCount() == 0 && self.numberOfSections() == 0 && !models.isEmpty {
-            deletedSectionIndex.add(0)
+//            deletedSectionIndex.add(0)
         }
 
         var updateParams = ModelTableUpdateParams.getEmpty()
@@ -187,7 +187,7 @@ extension PlainDataSource {
         updateParams.rowsInsert = insertedItemsIndexes
         updateParams.rowsUpdate = updatedItemsIndexes
         updateParams.rowsDelete = deletedItemsIndexes
-        updateParams.sectionsDelete = deletedSectionIndex as IndexSet
+//        updateParams.sectionsDelete = deletedSectionIndex as IndexSet
 
         let updateModel = animated ? ModelTableUpdate(updateType: .update, params: updateParams) : ModelTableUpdate(updateType: .reload)
         self.client?.updateWithModel(model: updateModel)
