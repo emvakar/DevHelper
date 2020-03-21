@@ -25,7 +25,6 @@ Pod::Spec.new do |s|
     s.framework = "UIKit"
     s.dependency 'SnapKit', '~> 5.0.0'
     s.dependency 'KRProgressHUD', '~> 3.4.1'
-    s.dependency 'DeepDiff', '~> 2.3.1'
     
     # 8
     s.source_files = "Sources/DevHelper/**/*.{swift}"

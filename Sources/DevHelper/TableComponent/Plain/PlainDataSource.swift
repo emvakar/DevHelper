@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import DeepDiff
 
 // MARK: - PlainModelProtocol
-public protocol PlainModelProtocol: Equatable, DiffAware {
+public protocol PlainModelProtocol: Equatable {
     func getUniqueId() -> AnyHashable?
 }
 

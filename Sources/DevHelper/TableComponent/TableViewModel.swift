@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import DeepDiff
 
 public enum ModelTableUpdateType {
     case reset
