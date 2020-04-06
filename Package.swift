@@ -3,21 +3,17 @@
 
 import PackageDescription
 
-let package = Package(name: "DevHelper", platforms: [.iOS(.v11)],
+let package = Package(
+    name: "DevHelper",
+    platforms: [.iOS(.v11)],
     products: [
-        // Products define the executables and libraries produced by a package, and make them visible to other packages.
         .library(name: "DevHelper", targets: ["DevHelper"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-         .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.0.0"),
+        .package(url: "https://github.com/krimpedance/KRProgressHUD.git", from: "3.4.5"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages which this package depends on.
-        .target(name: "DevHelper", dependencies: ["SnapKit"], path: "Sources/DevHelper"),
-//        .testTarget(
-//            name: "DevHelperTests",
-//            dependencies: ["DevHelper"]),
+        .target(name: "DevHelper", dependencies: ["SnapKit", "KRProgressHUD"], path: "Sources/DevHelper"),
     ]
 )
