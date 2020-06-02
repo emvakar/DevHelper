@@ -36,10 +36,9 @@ public class CurtainView: BaseFooterView {
 
     override public func getViewHeight() -> CGFloat {
         var labelWidth: CGFloat = 0
-        if let app = UIApplication.shared.delegate, let window = app.window, let windowWidth = window?.frame.size.width {
-            labelWidth = windowWidth - 16
-        }
 
+        let windowWidth = UIScreen.main.bounds.width
+        labelWidth = windowWidth - 16
         let size = CGSize(width: labelWidth, height: CGFloat(MAXFLOAT))
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let attributes = [NSAttributedString.Key.font: self.labelMessage.font]
