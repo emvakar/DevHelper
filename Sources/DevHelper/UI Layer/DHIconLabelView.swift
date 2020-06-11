@@ -28,25 +28,25 @@ public class DHIconLabelView: UIView {
 
         let container = UIView()
         self.addSubview(container)
-        container.snp.makeConstraints() {
-            $0.edges.equalToSuperview().inset(self.insets ?? UIEdgeInsets.zero)
-        }
-
+        
+        container.topAnchor.constraint(equalTo: self.topAnchor, constant: self.insets?.top ?? 0).isActive = true
+        container.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.insets?.bottom ?? 0).isActive = true
+        container.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.insets?.left ?? 0).isActive = true
+        container.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.insets?.right ?? 0).isActive = true
+       
         container.addSubview(self.iconView)
-        self.iconView.snp.makeConstraints() {
-            $0.left.equalToSuperview()
-            $0.top.equalToSuperview().offset(2)
-            $0.width.equalTo(13)
-            $0.height.equalTo(13)
-        }
+        
+        self.iconView.topAnchor.constraint(equalTo: container.topAnchor, constant: 2).isActive = true
+        self.iconView.leftAnchor.constraint(equalTo: container.leftAnchor).isActive = true
+        self.iconView.heightAnchor.constraint(equalToConstant: 13).isActive = true
+        self.iconView.widthAnchor.constraint(equalToConstant: 13).isActive = true
 
         container.addSubview(self.label)
-        self.label.snp.makeConstraints() {
-            $0.left.equalTo(self.iconView.snp.right).offset(8)
-            $0.right.equalToSuperview()
-            $0.bottom.equalToSuperview()
-            $0.top.equalToSuperview()
-        }
+        
+        self.label.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        self.label.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        self.label.leftAnchor.constraint(equalTo: self.iconView.leftAnchor, constant: 8).isActive = true
+        self.label.rightAnchor.constraint(equalTo: container.rightAnchor).isActive = true
     }
 
     override public init(frame: CGRect) {

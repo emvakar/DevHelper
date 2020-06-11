@@ -40,11 +40,9 @@ extension UIBarButtonItem {
                 button.addTarget(target, action: action, for: .touchUpInside)
             }
             button.accessibilityLabel = item.accessibilityName
-            button.snp.makeConstraints {
-
-                $0.width.equalTo(44)
-                $0.height.equalTo(44)
-            }
+            
+            button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            button.widthAnchor.constraint(equalToConstant: 44).isActive = true
             stackView.addArrangedSubview(button)
         }
 
@@ -63,11 +61,9 @@ extension UIBarButtonItem {
 
         if #available(iOS 11, *) {
 
-            button.snp.makeConstraints {
-
-                $0.width.equalTo(width)
-                $0.height.equalTo(height)
-            }
+            button.heightAnchor.constraint(equalToConstant: height).isActive = true
+            button.widthAnchor.constraint(equalToConstant: width).isActive = true
+            
         } else {
 
             button.frame = CGRect(x: 0, y: 0, width: width, height: height)
