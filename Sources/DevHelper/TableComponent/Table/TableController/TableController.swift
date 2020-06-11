@@ -318,13 +318,11 @@ extension TableController {
                 self.searchBar = tuple.searchBar
                 self.searchBarView = tuple.viewForLayout
                 self.view.addSubview(self.searchBarView)
-
-                self.searchBarView.snp.makeConstraints {
-                    $0.top.equalToSuperview()
-                    $0.left.equalToSuperview()
-                    $0.right.equalToSuperview()
-                    $0.height.greaterThanOrEqualTo(44)
-                }
+                
+                self.searchBarView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+                self.searchBarView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+                self.searchBarView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+                self.searchBarView.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
             }
         }
     }
@@ -338,12 +336,11 @@ extension TableController {
                 self.toolbarView = tuple.viewForLayout
 
                 self.view.addSubview(viewForLayout)
-                viewForLayout.snp.makeConstraints {
-                    $0.bottom.equalToSuperview()
-                    $0.left.equalToSuperview()
-                    $0.right.equalToSuperview()
-                    $0.height.greaterThanOrEqualTo(44)
-                }
+                
+                viewForLayout.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+                viewForLayout.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0).isActive = true
+                viewForLayout.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0).isActive = true
+                viewForLayout.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
             }
         }
     }
@@ -364,18 +361,12 @@ extension TableController {
             self.tableView.register(cellClass, forCellReuseIdentifier: reuseIdentifier)
         }
 
-        self.tableView.snp.makeConstraints {
-            $0.top.equalTo(self.searchBarView == nil ? self.view : self.searchBarView.snp.bottom)
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
-            if let toolbarView = self.toolbarView as? UIView {
+        
+        self.tableView.topAnchor.constraint(equalTo: (self.searchBarView == nil ? self.view.topAnchor : self.searchBarView.bottomAnchor)).isActive = true
+        self.tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        self.tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        self.tableView.bottomAnchor.constraint(equalTo: (self.toolbarView as? UIView != nil ? self.toolbarView!.topAnchor : self.view.bottomAnchor)).isActive = true
 
-                $0.bottom.equalTo(toolbarView.snp.top)
-            } else {
-
-                $0.bottom.equalTo(self.view)
-            }
-        }
     }
 
     //Table footer view

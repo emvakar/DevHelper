@@ -98,28 +98,25 @@ extension ToolBarNotificationView {
 
     //Make Constraint
     private func makeConstraints() {
-        self.substrateView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-
-        self.closeBtn.snp.makeConstraints {
-            $0.right.equalToSuperview().offset(-8)
-            $0.centerY.equalToSuperview()
-            $0.height.equalTo(25)
-            $0.width.equalTo(25)
-        }
-
-        self.labelTopNotification.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(4)
-            $0.left.equalToSuperview().offset(8)
-            $0.right.equalTo(self.closeBtn.snp.left).offset(-8)
-        }
-
-        self.labelBottomNotification.snp.makeConstraints {
-            $0.top.equalTo(self.labelTopNotification.snp.bottom).offset(4)
-            $0.left.equalToSuperview().offset(8)
-            $0.right.equalTo(self.closeBtn.snp.left)
-            $0.bottom.equalToSuperview().offset(-4)
-        }
+        
+        self.substrateView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        self.substrateView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        self.substrateView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.substrateView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        
+        self.closeBtn.rightAnchor.constraint(equalTo: substrateView.rightAnchor, constant: -8).isActive = true
+        self.closeBtn.centerYAnchor.constraint(equalTo: substrateView.centerYAnchor).isActive = true
+        self.closeBtn.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.closeBtn.widthAnchor.constraint(equalToConstant: 25).isActive = true
+    
+        
+        self.labelTopNotification.topAnchor.constraint(equalTo: substrateView.topAnchor, constant: 4).isActive = true
+        self.labelTopNotification.leftAnchor.constraint(equalTo: substrateView.leftAnchor, constant: 8).isActive = true
+        self.labelTopNotification.rightAnchor.constraint(equalTo: closeBtn.leftAnchor, constant: -8).isActive = true
+       
+        self.labelBottomNotification.topAnchor.constraint(equalTo: labelTopNotification.topAnchor, constant: 4).isActive = true
+        self.labelBottomNotification.leftAnchor.constraint(equalTo: substrateView.leftAnchor, constant: 8).isActive = true
+        self.labelBottomNotification.rightAnchor.constraint(equalTo: closeBtn.leftAnchor).isActive = true
+        self.labelBottomNotification.bottomAnchor.constraint(equalTo: substrateView.bottomAnchor, constant: -4).isActive = true
     }
 }

@@ -40,27 +40,26 @@ public class DHHeaderView: UIView {
         self.label?.numberOfLines = 0
         self.backgroundColor = UIColor.RGB(r: 239, g: 239, b: 244)
         self.addSubview(self.label!)
-        self.label?.snp.makeConstraints { (maker) in
-            maker.left.equalToSuperview().offset(16)
-            maker.top.equalToSuperview().offset(23)
-            maker.bottom.equalToSuperview().offset(-5)
-            maker.right.equalToSuperview().offset(-40)
-        }
+        
+        self.label?.topAnchor.constraint(equalTo: self.topAnchor, constant: 23).isActive = true
+        self.label?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        self.label?.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+        self.label?.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -40).isActive = true
+        
         self.addSubview(self.detailLabel!)
         self.detailLabel?.numberOfLines = 1
-        self.detailLabel?.snp.makeConstraints { (maker) in
-            maker.right.equalToSuperview().offset(-16)
-            maker.top.equalTo(self.label!)
-        }
+        
+        self.detailLabel?.topAnchor.constraint(equalTo: label!.topAnchor).isActive = true
+        self.detailLabel?.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
+        
         let separatorView = UIView()
         separatorView.backgroundColor = UIColor.RGB(r: 210, g: 210, b: 210)
         self.addSubview(separatorView)
-        separatorView.snp.makeConstraints { (maker) in
-            maker.bottom.equalToSuperview()
-            maker.left.equalToSuperview()
-            maker.right.equalToSuperview()
-            maker.height.equalTo(1)
-        }
+        
+        separatorView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        separatorView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        separatorView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
 
     required public init?(coder aDecoder: NSCoder) {

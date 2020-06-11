@@ -54,30 +54,30 @@ public class DHLoginInputView: UIView {
         self.textField.keyboardType = .emailAddress
         self.addSubview(self.imageViewIcon)
         self.addSubview(self.textField)
-        self.imageViewIcon.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.centerY.equalTo(self.textField)
-            make.width.equalTo(34)
-            make.height.equalTo(34)
-        }
-        self.textField.snp.makeConstraints({ (make) in
-            make.left.equalTo(self.imageViewIcon.snp.right).offset(10)
-            make.top.equalToSuperview().offset(5)
-            make.bottom.equalToSuperview().offset(-5)
-            make.right.equalToSuperview()
-            make.height.equalTo(46).priority(999)
-        })
+        
+        self.imageViewIcon.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        self.imageViewIcon.centerYAnchor.constraint(equalTo: self.textField.centerYAnchor).isActive = true
+        self.imageViewIcon.widthAnchor.constraint(equalToConstant: 34).isActive = true
+        self.imageViewIcon.heightAnchor.constraint(equalToConstant: 34).isActive = true
+      
+        self.textField.topAnchor.constraint(equalTo: self.topAnchor, constant: 5).isActive = true
+        self.textField.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5).isActive = true
+        self.textField.leftAnchor.constraint(equalTo: self.imageViewIcon.rightAnchor, constant: 10).isActive = true
+        self.textField.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        let textFieldHeight = self.textField.heightAnchor.constraint(equalToConstant: 46)
+        textFieldHeight.priority = .init(rawValue: 999)
+        textFieldHeight.isActive = true
         
         let separator = UIView()
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.backgroundColor = color.withAlphaComponent(0.8)
         self.addSubview(separator)
-        separator.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
-            make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
+        
+        separator.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        separator.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        separator.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        
         self.separator = separator
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(DHLoginInputView.click(tapRecognizer:)))

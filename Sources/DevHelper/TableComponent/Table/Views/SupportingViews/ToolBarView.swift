@@ -16,7 +16,7 @@ open class ToolbarView: UIView {
     // MARK: - Properties
     private var notificationView: ToolBarNotificationView! = nil
     private(set) public var filterToolbar: UIToolbar! = nil
-    private var notificationBottomConstraint: Constraint! = nil
+    private var notificationBottomConstraint: NSLayoutConstraint! = nil
     private var toolbarTopConstraint: Constraint! = nil
     private var toolBarViewContent: ToolbarStruct! = nil
     private var notificaitonViewContent: FilterNotificationStruct! = nil
@@ -85,7 +85,7 @@ extension ToolbarView: TableToToolbarProtocol {
 
         self.superview?.layoutIfNeeded()
         UIView.animate(withDuration: animation ? 0.2 : 0.0) {
-            self.notificationBottomConstraint.update(offset: self.toolBarViewContent.toolbarHeight)
+            self.notificationBottomConstraint.constant = CGFloat(self.toolBarViewContent.toolbarHeight)
             self.superview?.layoutIfNeeded()
         }
     }
@@ -94,7 +94,8 @@ extension ToolbarView: TableToToolbarProtocol {
     public func showOverview(animation: Bool) {
         self.superview?.layoutIfNeeded()
         UIView.animate(withDuration: animation ? 0.2 : 0.0) {
-            self.notificationBottomConstraint.update(offset: 0)
+            self.notificationBottomConstraint.constant = 0
+
             self.superview?.layoutIfNeeded()
         }
     }
@@ -133,19 +134,22 @@ extension ToolbarView {
 
     // MARK: - make constraint
     private func makeConstraint() {
-        notificationView.snp.makeConstraints {
-            $0.top.equalToSuperview().priority(900)
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
-            self.notificationBottomConstraint = $0.bottom.equalTo(filterToolbar.snp.top).constraint
-        }
+        
+        
+        let notificationViewTop = notificationView.topAnchor.constraint(equalTo: self.topAnchor)
+        notificationViewTop.priority = .init(rawValue: 900)
+        notificationViewTop.isActive = true
+        notificationView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        notificationView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        self.notificationBottomConstraint = notificationView.bottomAnchor.constraint(equalTo: filterToolbar.topAnchor)
+        self.notificationBottomConstraint.isActive = true
 
-        filterToolbar.snp.makeConstraints {
-            $0.top.equalToSuperview().priority(400)
-            $0.left.equalToSuperview()
-            $0.right.equalToSuperview()
-            $0.bottom.equalToSuperview()
-            $0.height.equalTo(self.toolBarViewContent.toolbarHeight)
-        }
+        let filterToolbarTop = filterToolbar.topAnchor.constraint(equalTo: self.topAnchor)
+        filterToolbarTop.priority = .defaultLow
+        filterToolbarTop.isActive = true
+        filterToolbar.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        filterToolbar.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        filterToolbar.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        filterToolbar.heightAnchor.constraint(equalToConstant: CGFloat(self.toolBarViewContent.toolbarHeight)).isActive = true
     }
 }

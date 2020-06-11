@@ -58,15 +58,12 @@ public struct Maker {
 
         let view = UIView()
         if let orientation = orientation, let size = size {
-
-            view.snp.makeConstraints({
-
-                if orientation == .vertical {
-                    $0.height.equalTo(size)
-                } else {
-                    $0.width.equalTo(size)
-                }
-            })
+            
+            if orientation == .vertical {
+                view.heightAnchor.constraint(equalToConstant: CGFloat(size)).isActive = true
+            } else {
+                view.widthAnchor.constraint(equalToConstant: CGFloat(size)).isActive = true
+            }
         }
         return view
     }
@@ -99,15 +96,16 @@ public struct Maker {
         containerView.addSubview(label)
         containerView.addSubview(separatorView)
         
-        label.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        label.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        label.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        label.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         
-        separatorView.snp.makeConstraints {
-            $0.left.right.bottom.equalToSuperview()
-            $0.height.equalTo(1)
-        }
-        
+        separatorView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        separatorView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        separatorView.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        separatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+       
         return containerView
     }
     
@@ -122,21 +120,19 @@ public struct Maker {
         button.layer.masksToBounds = cornerRadius > 0
         button.backgroundColor = .white
         
-        button.snp.makeConstraints {
-            $0.width.height.equalTo(iconSize)
-        }
+        button.widthAnchor.constraint(equalToConstant: iconSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: iconSize).isActive = true
+        
         
         if let label = label {
             view.addSubview(label)
             let ratio: CGFloat = UIScreen.main.bounds.width / 375
-            label.snp.makeConstraints {
-                $0.top.equalTo(button.snp.bottom)
-                $0.height.equalTo(35 * ratio)
-                $0.left.equalToSuperview().offset(ratio * -11)
-                $0.right.equalToSuperview().offset(ratio * 11)
-                $0.bottom.equalToSuperview()
-            }
             
+            label.topAnchor.constraint(equalTo: button.bottomAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: ratio * -11).isActive = true
+            label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: ratio * 11).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 35 * ratio).isActive = true
         }
         
         if showShadow {
@@ -160,21 +156,18 @@ public struct Maker {
         button.addSubview(iconView)
         iconView.image? = (iconView.image?.withRenderingMode(.alwaysTemplate))!
         iconView.tintColor = iconColor
-        iconView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            switch position {
-            case .left: make.left.equalToSuperview().offset(iconOffset ?? 0)
-            case .right: make.right.equalToSuperview().offset(-(iconOffset ?? 0))
-            case .center: make.centerX.equalToSuperview()
-            }
-            make.width.equalTo(size.width)
-            make.height.equalTo(size.height)
+        
+        switch position {
+        case .left: iconView.leftAnchor.constraint(equalTo: button.leftAnchor, constant: iconOffset ?? 0).isActive = true
+        case .right: iconView.rightAnchor.constraint(equalTo: button.rightAnchor, constant: (iconOffset ?? 0) * -1).isActive = true
+        case .center: iconView.centerXAnchor.constraint(equalTo: button.centerXAnchor).isActive = true
         }
+        iconView.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        iconView.widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        iconView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
         
         guard let height = buttonHeigh else { return button }
-        button.snp.makeConstraints {
-            $0.height.equalTo(height)
-        }
+        button.heightAnchor.constraint(equalToConstant: height)
         
         return button
     }
@@ -213,12 +206,11 @@ public struct Maker {
             button.addSubview(iconView)
             iconView.image? = (iconView.image?.withRenderingMode(.alwaysTemplate))!
             iconView.tintColor = mainColor
-            iconView.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.left.equalToSuperview().offset(14)
-                make.height.equalTo(height)
-                make.width.equalTo(24)
-            }
+            
+            iconView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            iconView.leftAnchor.constraint(equalTo: button.leftAnchor, constant: 14).isActive = true
+            iconView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            iconView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         }
         if arrow {
             let arrowView = UIImageView(image: UIImage(named: "ArrowRight"))
@@ -226,15 +218,14 @@ public struct Maker {
             arrowView.image = arrowView.image?.withRenderingMode(.alwaysTemplate)
             arrowView.tintColor = mainColor
             button.addSubview(arrowView)
-            arrowView.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.right.equalToSuperview().offset(-13)
-            }
+            
+            arrowView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            arrowView.rightAnchor.constraint(equalTo: button.rightAnchor, constant: -13).isActive = true
         }
-        button.snp.makeConstraints { (make) in
-            make.height.equalTo(height)
-            make.width.equalTo(140)
-        }
+        
+        button.heightAnchor.constraint(equalToConstant: height).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        
         return button
     }
 
@@ -256,12 +247,12 @@ public struct Maker {
             button.addSubview(iconView)
             iconView.image? = (iconView.image?.withRenderingMode(.alwaysTemplate))!
             iconView.tintColor = mainColor
-            iconView.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.left.equalToSuperview().offset(14)
-                make.height.equalTo(height)
-                make.width.equalTo(24)
-            }
+            
+            
+            iconView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            iconView.leftAnchor.constraint(equalTo: button.leftAnchor, constant: 14).isActive = true
+            iconView.heightAnchor.constraint(equalToConstant: height).isActive = true
+            iconView.widthAnchor.constraint(equalToConstant: 24).isActive = true
         }
         if arrow {
             let arrowView = UIImageView(image: UIImage(named: "ArrowRight"))
@@ -269,15 +260,17 @@ public struct Maker {
             arrowView.image = arrowView.image?.withRenderingMode(.alwaysTemplate)
             arrowView.tintColor = mainColor
             button.addSubview(arrowView)
-            arrowView.snp.makeConstraints { (make) in
-                make.centerY.equalToSuperview()
-                make.right.equalToSuperview().offset(-13)
-            }
+            
+            arrowView.centerYAnchor.constraint(equalTo: button.centerYAnchor).isActive = true
+            arrowView.rightAnchor.constraint(equalTo: button.rightAnchor, constant: -13).isActive = true
+            
         }
-        button.snp.makeConstraints { (make) in
-            make.height.equalTo(height)
-            make.width.equalTo(140).priority(100)
-        }
+        
+        button.heightAnchor.constraint(equalToConstant: height).isActive = true
+        let buttonWidth = button.widthAnchor.constraint(equalToConstant: 140)
+        buttonWidth.priority = .init(rawValue: 100)
+        buttonWidth.isActive = true
+        
         return button
     }
     
