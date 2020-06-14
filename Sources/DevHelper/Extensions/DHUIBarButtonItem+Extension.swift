@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 
 public struct DHBarButtonItem {
     let icon: UIImage?

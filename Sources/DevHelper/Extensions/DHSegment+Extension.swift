@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 public extension UISegmentedControl {
     public func removeBorder(selectedColor: UIColor, unselectedColor: UIColor) {

@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SnapKit
 
 // MARK: - FilterToolbarView
 open class ToolbarView: UIView {
@@ -17,7 +16,6 @@ open class ToolbarView: UIView {
     private var notificationView: ToolBarNotificationView! = nil
     private(set) public var filterToolbar: UIToolbar! = nil
     private var notificationBottomConstraint: NSLayoutConstraint! = nil
-    private var toolbarTopConstraint: Constraint! = nil
     private var toolBarViewContent: ToolbarStruct! = nil
     private var notificaitonViewContent: FilterNotificationStruct! = nil
 
